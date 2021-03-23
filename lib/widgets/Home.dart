@@ -107,7 +107,7 @@ class _HomeState extends State<Home> {
             ),
             
             Expanded(
-              child: ListView.builder(
+              child: ReorderableListView.builder(
                 shrinkWrap: true,
                 itemCount: bar.menu.length,
                 itemBuilder: (BuildContext context, int index) {
@@ -144,13 +144,13 @@ class _HomeState extends State<Home> {
                     ),
                   );
                 },
-                /**onReorder: (int oldIndex, int newIndex) {
+                onReorder: (int oldIndex, int newIndex) {
                   setState(() {
-                  final Drink d = bar.menu.removeAt(oldIndex);
-                  bar.menu.insert(oldIndex < newIndex ? newIndex - 1 : newIndex, d);
-                  bar.save();
+                    final Drink d = bar.menu.removeAt(oldIndex);
+                    bar.menu.insert(oldIndex < newIndex ? newIndex - 1 : newIndex, d);
+                    //bar.save();
                   });
-                  },*/
+                  },
               ),
             ),
           ],
@@ -194,10 +194,9 @@ class _HomeState extends State<Home> {
   
   
   
-  
-  
-        drawer: BarDrawer(),
         
+        drawer: BarDrawer(),
+
 //      bottomSheet: Container(
 //        child: AdmobBanner(
 //          adUnitId: 'ca-app-pub-3940256099942544/6300978111',
@@ -208,9 +207,8 @@ class _HomeState extends State<Home> {
 //        ),
 //        color: Colors.yellowAccent,
 //      ),
-        
-        
-        
+
+      
   
         floatingActionButton:  SpeedDial(
           overlayOpacity: 0.4,
@@ -221,7 +219,10 @@ class _HomeState extends State<Home> {
             SpeedDialChild(
               child: Icon(Icons.add),
               label: 'Add drink',
-//              labelWidget: Text('Add drink', style: TextStyle(fontSize: Settings.fontSizeSmall)),
+              labelBackgroundColor: Colors.white,
+              labelStyle: TextStyle(
+                fontSize: Settings.fontSizeSmall,
+              ),
               onTap: () async {
                 await showDialog(
                   context: context,
@@ -234,7 +235,12 @@ class _HomeState extends State<Home> {
             
             SpeedDialChild(
               child: Icon(Icons.qr_code_rounded),
-              labelWidget: Text('Generate QR Code', style: TextStyle(fontSize: Settings.fontSizeSmall)),
+              label: 'Share bar',
+              labelBackgroundColor: Colors.white,
+              labelStyle: TextStyle(
+                fontSize: Settings.fontSizeSmall,
+              ),
+              
               backgroundColor: Theme.of(context).primaryColor,
               onTap: () async {
                 await showDialog(

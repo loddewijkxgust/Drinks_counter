@@ -1,4 +1,4 @@
-#Tue Mar 23 21:54:59 CET 2021
+#Tue Mar 23 23:26:12 CET 2021
 base.0=C\:\\Users\\Gustl\\Desktop\\Code\\Apps\\Flutter\\drinks_counter3\\drinks_counter\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
