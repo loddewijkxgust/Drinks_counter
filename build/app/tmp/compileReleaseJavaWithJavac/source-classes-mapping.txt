@@ -1,0 +1,4 @@
+io/flutter/plugins/GeneratedPluginRegistrant.java
+ io.flutter.plugins.GeneratedPluginRegistrant
+com/gust/drinkscounter/BuildConfig.java
+ com.gust.drinkscounter.BuildConfig
