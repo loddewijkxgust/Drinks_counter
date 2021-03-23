@@ -175,7 +175,7 @@ class _BarDrawerState extends State<BarDrawer> {
                       }
 
                       try {
-                        Bar bar = JSONParse.strToBar(await FlutterBarcodeScanner.scanBarcode('#ff0000', 'Cancel', true, ScanMode.QR));
+                        Bar bar = JSONParse.strToBar(await FlutterBarcodeScanner.scanBarcode('#ff0000', 'Cancel', true, ScanMode.QR), encoded: true);
                         bars.add(bar);
                         vals.put('last', bars.keyAt(bars.length-1));
                         ScaffoldMessenger.of(context).showSnackBar(
