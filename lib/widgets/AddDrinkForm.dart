@@ -1,16 +1,16 @@
-import 'file:///C:/Users/Gustl/Desktop/Code/Apps/Flutter/drinks_counter3/drinks_counter/lib/Old/CustomNotification.dart';
 import 'package:drinkscounter/models/Bar.dart';
 import 'package:drinkscounter/models/Drink.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
 
+// ignore: must_be_immutable
 class AddDrinkForm extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
   String name = '';
   double price = -1;
-  var bars = Hive.box<Bar>('bars');
-  var vals = Hive.box<dynamic>('values');
+  final Box bars = Hive.box<Bar>('bars');
+  final Box vals = Hive.box<dynamic>('values');
   Bar bar = Bar.empty();
   
   @override

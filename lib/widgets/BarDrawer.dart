@@ -1,9 +1,5 @@
-import 'dart:io';
-
 import 'package:drinkscounter/JSONParser.dart';
-import 'file:///C:/Users/Gustl/Desktop/Code/Apps/Flutter/drinks_counter3/drinks_counter/lib/Old/CustomNotification.dart';
 import 'package:drinkscounter/widgets/AddBarForm.dart';
-import 'package:drinkscounter/widgets/QRGenerator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:hive/hive.dart';
@@ -143,7 +139,7 @@ class _BarDrawerState extends State<BarDrawer> {
                       await showDialog(
                         context: context,
                         builder: (BuildContext context) {
-                          return AddBarForm();
+                          return AddBarForm(true);
                           },
                         barrierDismissible: bars.isNotEmpty
                       );

@@ -46,7 +46,7 @@ class _QRScannerState extends State<QRScanner> {
     this.qrString = await FlutterBarcodeScanner.scanBarcode('#000000', 'Cancel', true, ScanMode.QR);
       print(this.qrString);
       try {
-        Bar bar = await JSONParse.strToBar(this.qrString);
+        Bar bar = JSONParse.strToBar(this.qrString);
         bars.add(bar);
         vals.put('last', bars.keyAt(bars.length-1));
       } catch (e) {

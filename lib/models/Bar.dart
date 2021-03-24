@@ -61,4 +61,8 @@ class Bar extends HiveObject {
   static Bar empty() {
     return new Bar(name: 'Empty');
   }
+  
+  void setName(String _name) {
+    this.name = _name;
+  }
 }

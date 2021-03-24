@@ -1,5 +1,3 @@
-import 'package:drinkscounter/JSONParser.dart';
-import 'file:///C:/Users/Gustl/Desktop/Code/Apps/Flutter/drinks_counter3/drinks_counter/lib/Old/CustomNotification.dart';
 import 'package:drinkscounter/Settings.dart';
 import 'package:drinkscounter/models/Bar.dart';
 import 'package:drinkscounter/models/Drink.dart';
@@ -7,6 +5,7 @@ import 'package:drinkscounter/widgets/AddBarForm.dart';
 import 'package:drinkscounter/widgets/AddDrinkForm.dart';
 import 'package:drinkscounter/widgets/BarDrawer.dart';
 import 'package:drinkscounter/widgets/QRGenerator.dart';
+import 'package:drinkscounter/widgets/PopupMenu.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -14,10 +13,7 @@ import 'package:drinkscounter/widgets/DrinkTile.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'dart:convert';
-import 'dart:io';
 
-import 'package:lzma/lzma.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -68,8 +64,11 @@ class _HomeState extends State<Home> {
         
         appBar: AppBar(
           backgroundColor: Theme.of(context).primaryColor,
-          title: Text(bar.name),//Text('${bar.key}  ::  ${bar.name}'),
+          title: Text(bar.name),
           centerTitle: true,
+          actions: [
+            PopupMenu()
+          ],
         ),
         
         
@@ -163,7 +162,7 @@ class _HomeState extends State<Home> {
             onPressed: () async {
               await showDialog(
                 context: context,
-                builder: (BuildContext context) => AddBarForm()
+                builder: (BuildContext context) => AddBarForm(true)
               );
               setState(() {});
               },
@@ -235,7 +234,6 @@ class _HomeState extends State<Home> {
             SpeedDialChild(
               child: Icon(Icons.bug_report),
               onTap: () async {
-                double fs = 20;
                 await showDialog(
                   context: context,
                   builder: (BuildContext context) {

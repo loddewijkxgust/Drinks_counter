@@ -30,7 +30,6 @@ class _QRGeneratorState extends State<QRGenerator> {
   Widget build(BuildContext context) {
     bar = bars.get(vals.get('last')) ?? bar;
     double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
     return SimpleDialog(
       //title: Text(JSONParse.barToStr(bar)),
       backgroundColor: Colors.white,
