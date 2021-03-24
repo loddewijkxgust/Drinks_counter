@@ -64,7 +64,6 @@ class _BarDrawerState extends State<BarDrawer> {
                           //bar.save();
                       }
                     });
-//                    CustomNotification(notification: Notifications.update)..dispatch(context);
                   },
                   confirmDismiss: (direction) async {
                     return await showDialog(
@@ -104,7 +103,6 @@ class _BarDrawerState extends State<BarDrawer> {
                         child: Text(
                           bars.values.elementAt(index).name,
                           softWrap: false,
-                          //'${bars.keys.elementAt(index)}  ::  ${bars.values.elementAt(index).name}',
                           style: TextStyle(
                             fontSize: Settings.fontSize,
                             color: Colors.black)),
@@ -116,7 +114,6 @@ class _BarDrawerState extends State<BarDrawer> {
                         print(bars.getAt(index)?.key);
                         vals.put('last', bars.getAt(index)?.key ?? bar.key);
                         Navigator.pop(context);
-//                        CustomNotification(notification: Notifications.update)..dispatch(context);
                       });
                     },
                   ),
@@ -141,12 +138,9 @@ class _BarDrawerState extends State<BarDrawer> {
                         builder: (BuildContext context) {
                           return AddBarForm(true);
                           },
-                        barrierDismissible: bars.isNotEmpty
                       );
                       setState(() {
-//                        CustomNotification(notification: Notifications.update)..dispatch(context);
                       });
-                        //bars.add(new Bar(name: 'Impuls'));
                     },
                     child: Text('+ Add bar',
                       style: TextStyle(fontSize: Settings.fontSize)
@@ -181,7 +175,6 @@ class _BarDrawerState extends State<BarDrawer> {
                         print('Bardrawer:183: $e}');
                       }
                       setState(() {});
-//                      CustomNotification(notification: Notifications.update)..dispatch(context);
                       Navigator.pop(context);
                       
                     },

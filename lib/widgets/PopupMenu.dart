@@ -1,5 +1,6 @@
 import 'package:drinkscounter/models/Bar.dart';
 import 'package:drinkscounter/widgets/AddBarForm.dart';
+import 'package:drinkscounter/widgets/CustomPopupMenuItem.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 
@@ -12,34 +13,40 @@ class PopupMenu extends StatelessWidget {
     Bar bar = bars.get(vals.get('last')) ?? Bar.empty();
     return PopupMenuButton(
       itemBuilder: (context) => <PopupMenuEntry>[
-        PopupMenuItem(
-          child: Text('Edit name'),
-          value: Actions.edit
+        
+        CustomPopupMenuItem(
+          icon: Icons.edit,
+          text: Text('Edit name'),
+          value: PopupActions.edit,
         ),
-        PopupMenuItem(
-          child: Text('Clear bar'),
-          value: Actions.clear
-        ),
-        PopupMenuItem(
-          child: Text('Reset amount'),
-          value: Actions.empty,
+       CustomPopupMenuItem(
+         icon: Icons.delete,
+         text: Text('Clear bar'),
+         value: PopupActions.clear,
+       ),
+        CustomPopupMenuItem(
+          icon: Icons.clear,
+          text: Text('Reset amount'),
+          value: PopupActions.empty,
         )
       ],
+      
       onSelected: (result) async {
+        print(result);
         switch (result) {
-          case Actions.edit:
+          case PopupActions.edit:
             await showDialog(
               context: context,
               builder: (BuildContext context) => AddBarForm(false),
             );
             break;
             
-          case Actions.clear:
+          case PopupActions.clear:
             bar.clear();
             bar.save();
             break;
           
-          case Actions.empty:
+          case PopupActions.empty:
             bar.clearAmount();
             bar.save();
             break;
@@ -47,10 +54,4 @@ class PopupMenu extends StatelessWidget {
       },
     );
   }
-}
-
-enum Actions {
-  edit,
-  empty,
-  clear
 }

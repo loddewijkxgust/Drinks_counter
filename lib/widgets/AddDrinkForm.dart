@@ -16,7 +16,7 @@ class AddDrinkForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bar = bars.get(vals.get('last')) ?? bar;
-    // Build a Form widget using the _formKey created above.
+
     return SimpleDialog(
       contentPadding: EdgeInsets.fromLTRB(5, 5, 5, 5),
       children: [
