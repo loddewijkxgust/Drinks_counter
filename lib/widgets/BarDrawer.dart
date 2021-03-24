@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:drinkscounter/JSONParser.dart';
-import 'package:drinkscounter/Notifications/CustomNotification.dart';
+import 'file:///C:/Users/Gustl/Desktop/Code/Apps/Flutter/drinks_counter3/drinks_counter/lib/Old/CustomNotification.dart';
 import 'package:drinkscounter/widgets/AddBarForm.dart';
 import 'package:drinkscounter/widgets/QRGenerator.dart';
 import 'package:flutter/material.dart';
@@ -68,7 +68,7 @@ class _BarDrawerState extends State<BarDrawer> {
                           //bar.save();
                       }
                     });
-                    CustomNotification(notification: Notifications.update)..dispatch(context);
+//                    CustomNotification(notification: Notifications.update)..dispatch(context);
                   },
                   confirmDismiss: (direction) async {
                     return await showDialog(
@@ -120,7 +120,7 @@ class _BarDrawerState extends State<BarDrawer> {
                         print(bars.getAt(index)?.key);
                         vals.put('last', bars.getAt(index)?.key ?? bar.key);
                         Navigator.pop(context);
-                        CustomNotification(notification: Notifications.update)..dispatch(context);
+//                        CustomNotification(notification: Notifications.update)..dispatch(context);
                       });
                     },
                   ),
@@ -148,7 +148,7 @@ class _BarDrawerState extends State<BarDrawer> {
                         barrierDismissible: bars.isNotEmpty
                       );
                       setState(() {
-                        CustomNotification(notification: Notifications.update)..dispatch(context);
+//                        CustomNotification(notification: Notifications.update)..dispatch(context);
                       });
                         //bars.add(new Bar(name: 'Impuls'));
                     },
@@ -185,7 +185,7 @@ class _BarDrawerState extends State<BarDrawer> {
                         print('Bardrawer:183: $e}');
                       }
                       setState(() {});
-                      CustomNotification(notification: Notifications.update)..dispatch(context);
+//                      CustomNotification(notification: Notifications.update)..dispatch(context);
                       Navigator.pop(context);
                       
                     },

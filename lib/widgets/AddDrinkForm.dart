@@ -1,4 +1,4 @@
-import 'package:drinkscounter/Notifications/CustomNotification.dart';
+import 'file:///C:/Users/Gustl/Desktop/Code/Apps/Flutter/drinks_counter3/drinks_counter/lib/Old/CustomNotification.dart';
 import 'package:drinkscounter/models/Bar.dart';
 import 'package:drinkscounter/models/Drink.dart';
 import 'package:flutter/material.dart';
@@ -75,7 +75,7 @@ class AddDrinkForm extends StatelessWidget {
                     
                     bar.addDrink(new Drink(name: this.name, price: this.price));
                     bar.save();
-                    CustomNotification(notification: Notifications.update)..dispatch(context);
+//                    CustomNotification(notification: Notifications.update)..dispatch(context);
                     
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text('${this.name}  ::  ${this.price}'))

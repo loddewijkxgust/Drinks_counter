@@ -1,5 +1,5 @@
 import 'package:drinkscounter/JSONParser.dart';
-import 'package:drinkscounter/Notifications/CustomNotification.dart';
+import 'file:///C:/Users/Gustl/Desktop/Code/Apps/Flutter/drinks_counter3/drinks_counter/lib/Old/CustomNotification.dart';
 import 'package:drinkscounter/Settings.dart';
 import 'package:drinkscounter/models/Bar.dart';
 import 'package:drinkscounter/models/Drink.dart';
@@ -8,10 +8,12 @@ import 'package:drinkscounter/widgets/AddDrinkForm.dart';
 import 'package:drinkscounter/widgets/BarDrawer.dart';
 import 'package:drinkscounter/widgets/QRGenerator.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:drinkscounter/widgets/DrinkTile.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'dart:convert';
 import 'dart:io';
 
@@ -27,8 +29,8 @@ class _HomeState extends State<Home> {
   Drink stella = new Drink(name: 'Stella', price: 1.7, amount: 8);
   Drink cara = new Drink(name: 'Cara', price: 0.2, amount: 23);
   
-  var bars = Hive.box<Bar>('bars');
-  var vals = Hive.box<dynamic>('values');
+  Box bars = Hive.box<Bar>('bars');
+  Box vals = Hive.box<dynamic>('values');
   Bar bar = Bar.empty();
   Bar testBar = Bar.empty();
   
@@ -40,7 +42,7 @@ class _HomeState extends State<Home> {
       bar = Bar.empty();
       bar = new Bar(name: 'Lege bar');
     }
-
+    
 //    try {
 //      Bar b = JSONParse.jsonToBar('{"name":"Jeugdhuis Impuls","menu":[["Stella 25",1.5],["Stella 33",1.7],["Stella 50",3],["Duvel",2],["Westmalle dubbel",2.2],["Westmalle tripel",2.2],["Ice tea",1.5]]}');
 //      String s = JSONParse.barToJson(b);
@@ -54,34 +56,14 @@ class _HomeState extends State<Home> {
   
   @override
   Widget build(BuildContext context) {
-    print('Home built');
-    bar = bars.get(vals.get('last')) ?? Bar.empty();
-    if (bars.isEmpty) {
-      print('No bars');
-    }
-    
-//    String s = '{"name":"Jeugdhuis Impuls","menu":[["Stella 25",1.5],["Stella 33",1.7],["Stella 50",3],["Duvel",2],["Westmalle dubbel",2.2],["Westmalle tripel",2.2],["Ice tea",1.5]]}';
-//    var c = base64.encode(lzma.encode(utf8.encode(s)));
-//    print(lzma.encode(utf8.encode(s)));
-//    print(c);
-//    print(utf8.decode(lzma.decode(base64.decode(c))));
-
-    
-    
-    return NotificationListener<CustomNotification>(
-      
-      onNotification: (ntf) {
-        if (ntf.notification == Notifications.update) {
-          setState(() {
-            print('Updated (ntf)');
-          });
-        }
-        print('other');
-        return false;
-      },
-      
-      
-      child: Scaffold(
+    return AnimatedBuilder(
+      animation: Listenable.merge([vals.listenable(), bars.listenable()]),
+      builder: (context, widget) {
+        bar = bars.get(vals.get('last')) ?? Bar.empty();
+        print('--------------Built');
+        
+        
+        return Scaffold(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         
         appBar: AppBar(
@@ -145,11 +127,8 @@ class _HomeState extends State<Home> {
                   );
                 },
                 onReorder: (int oldIndex, int newIndex) {
-                  setState(() {
-                    final Drink d = bar.menu.removeAt(oldIndex);
-                    bar.menu.insert(oldIndex < newIndex ? newIndex - 1 : newIndex, d);
-                    //bar.save();
-                  });
+                  bar.swap(oldIndex, newIndex);
+                  bar.save();
                   },
               ),
             ),
@@ -271,7 +250,8 @@ class _HomeState extends State<Home> {
             ),
           ],
         ),
-      ),
+      );
+      }
     );
   }
 }

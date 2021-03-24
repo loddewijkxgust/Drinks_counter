@@ -1,6 +1,6 @@
 import 'package:drinkscounter/models/Bar.dart';
 import 'package:flutter/material.dart';
-import 'package:drinkscounter/Notifications/CustomNotification.dart';
+import 'file:///C:/Users/Gustl/Desktop/Code/Apps/Flutter/drinks_counter3/drinks_counter/lib/Old/CustomNotification.dart';
 import 'package:hive/hive.dart';
 
 
@@ -51,7 +51,7 @@ class AddBarForm extends StatelessWidget {
                     bars.add(bar);
                     vals.put('last', bars.keyAt(bars.length-1));
                     print(bars.keys);
-                    CustomNotification(notification: Notifications.update)..dispatch(context);
+                    //CustomNotification(notification: Notifications.update)..dispatch(context);
                   
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text('${this.name}'))

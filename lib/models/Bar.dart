@@ -27,6 +27,8 @@ class Bar extends HiveObject {
     return this.menu;
   }
   
+  
+  
   List<Drink> addAllDrinks(List<Drink> _menu) {
     _menu.forEach((element) {
       this.addDrink(element);
@@ -34,11 +36,22 @@ class Bar extends HiveObject {
     return this.menu;
   }
   
-  bool removeDrink(Drink _drink) {
+  Drink removeDrink(Drink _drink) {
     List<Drink> _temp = List.from(this.menu, growable: true);
-    bool succes = _temp.remove(_drink);
+    _temp.remove(_drink);
     this.menu = _temp;
-    return succes;
+    return _drink;
+  }
+  
+  void swap(int oldIndex, int newIndex) {
+    List<Drink> _temp = List.from(this.menu, growable: true);
+    final Drink d = _temp.removeAt(oldIndex);
+    _temp.insert(oldIndex < newIndex ? newIndex - 1 : newIndex, d);
+    this.menu = _temp;
+  }
+  
+  void clearAmount() {
+    this.menu.forEach((element) => element.amount = 0);
   }
   
   void clear() {
