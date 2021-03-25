@@ -21,12 +21,11 @@ class CustomPopupMenuItem<T> extends PopupMenuItem<T> {
   @override
   _CustomPopupMenuItemState<T> createState() =>_CustomPopupMenuItemState<T>();
   
-  double get height => kMinInteractiveDimension;
+  @override
+  double get height => super.height;
 
   @override
-  bool represents(T? value) {
-    return value == this.value;
-  }
+  bool represents(T? value) => value == this.value;
   
 }
 

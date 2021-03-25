@@ -1,4 +1,3 @@
-import 'package:drinkscounter/JSONParser.dart';
 import 'package:drinkscounter/widgets/AddBarForm.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
@@ -165,7 +164,10 @@ class _BarDrawerState extends State<BarDrawer> {
                       }
 
                       try {
-                        Bar bar = JSONParse.strToBar(await FlutterBarcodeScanner.scanBarcode('#ff0000', 'Cancel', true, ScanMode.QR), encoded: true);
+                        String qrString = await FlutterBarcodeScanner.scanBarcode('#ff0000', 'Cancel', true, ScanMode.QR);
+                        print('========= $qrString}');
+                        Bar bar = new Bar.fromString(string: qrString, encoded: true);
+                        //Bar bar = JSONParse.strToBar(await FlutterBarcodeScanner.scanBarcode('#ff0000', 'Cancel', true, ScanMode.QR), encoded: true);
                         bars.add(bar);
                         vals.put('last', bars.keyAt(bars.length-1));
                         ScaffoldMessenger.of(context).showSnackBar(

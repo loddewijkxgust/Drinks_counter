@@ -1,5 +1,7 @@
+import 'dart:convert';
 import 'package:drinkscounter/models/Drink.dart';
 import 'package:hive/hive.dart';
+import 'package:lzma/lzma.dart';
 part 'hive/Bar.g.dart';
 
 @HiveType(typeId: 2)
@@ -8,17 +10,48 @@ class Bar extends HiveObject {
   String name;
   @HiveField(1)
   List<Drink> menu = List<Drink>.empty(growable: true);
-//  HiveList menu = List<drink>.empty(growable: true);
   
   Bar({
     this.name = 'Empty',
   });
   
+  Bar.fromString({required String string, encoded = false, this.name = 'Empty'}) {
+    print('gestart');
+    string = encoded ? utf8.decode(lzma.decode(base64.decode(string))) : string;
+    print('*******************************');
+    Map<String, dynamic> json = jsonDecode(string);
+    print('--------------------------');
+   
+    print(string);
+    this.name = json['name'];
+    List<dynamic> _menu = json['menu'];
+  
+    _menu.forEach((item) {
+      this.addDrink(new Drink(
+        name: item[0],
+        price: double.parse(item[1].toString()),
+      ));
+    });
+  }
+  
+  String toString({encoded = false}) {
+    String str = '{"name":"${this.name}","menu":[';
+    for (int i = 0; i < this.menu.length; i++) {
+      Drink drink = this.menu[i];
+      str += '["${drink.name}",${drink.price}]';
+      if (i < this.menu.length-1) {
+        str += ',';
+      }
+    }
+    str += ']}';
+    return encoded ? base64.encode(lzma.encode(utf8.encode(str))) : str;
+  }
+  
   List<Drink> setMenu(List<Drink> _menu) {
     this.menu = _menu;
     return this.menu;
   }
-  @HiveField(3)
+  
   List<Drink> addDrink(Drink _drink) {
     List<Drink> _temp = List.empty(growable: true);
     _temp.addAll(this.menu);

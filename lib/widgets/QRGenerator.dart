@@ -1,5 +1,3 @@
-
-import 'package:drinkscounter/JSONParser.dart';
 import 'package:drinkscounter/models/Bar.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
@@ -40,7 +38,7 @@ class _QRGeneratorState extends State<QRGenerator> {
             color: Colors.white,
             width: width*.9,
             child: QrImage(
-              data: JSONParse.barToStr(bar, encoded: true),
+              data: bar.toString(encoded: true),
             //size: width*.85,
             ),
           ),

@@ -1,5 +1,5 @@
 
-import 'package:drinkscounter/JSONParser.dart';
+import 'file:///C:/Users/Gustl/Desktop/Code/Apps/Flutter/drinks_counter3/drinks_counter/lib/Old/JSONParser.dart';
 import 'package:drinkscounter/models/Bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
