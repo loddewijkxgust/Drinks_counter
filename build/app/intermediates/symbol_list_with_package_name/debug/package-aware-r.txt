@@ -71,6 +71,9 @@ attr actionOverflowMenuStyle
 attr actionProviderClass
 attr actionViewClass
 attr activityChooserViewStyle
+attr adSize
+attr adSizes
+attr adUnitId
 attr alertDialogButtonGroupStyle
 attr alertDialogCenterButtons
 attr alertDialogStyle
@@ -537,7 +540,10 @@ attr windowNoTitle
 bool abc_action_bar_embed_tabs
 bool abc_allow_stacked_button_bar
 bool abc_config_actionMenuItemAllCaps
+bool enable_system_alarm_service_default
+bool enable_system_job_service_default
 bool mtrl_btn_textappearance_all_caps
+bool workmanager_test_configuration
 color abc_background_cache_hint_selector_material_dark
 color abc_background_cache_hint_selector_material_light
 color abc_btn_colored_borderless_text_material
@@ -574,6 +580,10 @@ color bright_foreground_inverse_material_dark
 color bright_foreground_inverse_material_light
 color bright_foreground_material_dark
 color bright_foreground_material_light
+color browser_actions_bg_grey
+color browser_actions_divider_color
+color browser_actions_text_color
+color browser_actions_title_color
 color button_material_dark
 color button_material_light
 color cardview_dark_background
@@ -757,6 +767,8 @@ dimen abc_text_size_title_material
 dimen abc_text_size_title_material_toolbar
 dimen activity_horizontal_margin
 dimen activity_vertical_margin
+dimen browser_actions_context_menu_max_width
+dimen browser_actions_context_menu_min_padding
 dimen cardview_compat_inset_shadow
 dimen cardview_default_elevation
 dimen cardview_default_radius
@@ -1117,6 +1129,11 @@ id auto
 id beginning
 id blocking
 id bottom
+id browser_actions_header_text
+id browser_actions_menu_item_icon
+id browser_actions_menu_item_text
+id browser_actions_menu_items
+id browser_actions_menu_view
 id btnBarcodeCaptureCancel
 id buttonPanel
 id cancel_action
@@ -1348,6 +1365,8 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout barcode_capture
+layout browser_actions_context_menu_page
+layout browser_actions_context_menu_row
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -1445,6 +1464,13 @@ string hide_bottom_view_on_scroll_behavior
 string low_storage_error
 string mtrl_chip_close_icon_content_description
 string no_camera_permission
+string offline_notification_text
+string offline_notification_title
+string offline_opt_in_confirm
+string offline_opt_in_confirmation
+string offline_opt_in_decline
+string offline_opt_in_message
+string offline_opt_in_title
 string ok
 string password_toggle_content_description
 string path_password_eye
@@ -1453,6 +1479,13 @@ string path_password_eye_mask_visible
 string path_password_strike_through
 string permission_camera_rationale
 string read_barcode
+string s1
+string s2
+string s3
+string s4
+string s5
+string s6
+string s7
 string search_menu_title
 string status_bar_notification_info_overflow
 string title_activity_main
@@ -1799,6 +1832,7 @@ style Theme_Design_Light
 style Theme_Design_Light_BottomSheetDialog
 style Theme_Design_Light_NoActionBar
 style Theme_Design_NoActionBar
+style Theme_IAPTheme
 style Theme_MaterialComponents
 style Theme_MaterialComponents_BottomSheetDialog
 style Theme_MaterialComponents_Bridge
@@ -1969,6 +2003,7 @@ styleable ActionMenuItemView android_minWidth
 styleable ActionMenuView
 styleable ActionMode background backgroundSplit closeItemLayout height subtitleTextStyle titleTextStyle
 styleable ActivityChooserView expandActivityOverflowButtonDrawable initialActivityCount
+styleable AdsAttrs adSize adSizes adUnitId
 styleable AlertDialog android_layout buttonIconDimen buttonPanelSideLayout listItemLayout listLayout multiChoiceItemLayout showTitle singleChoiceItemLayout
 styleable AnimatedStateListDrawableCompat android_dither android_visible android_variablePadding android_constantSize android_enterFadeDuration android_exitFadeDuration
 styleable AnimatedStateListDrawableItem android_id android_drawable

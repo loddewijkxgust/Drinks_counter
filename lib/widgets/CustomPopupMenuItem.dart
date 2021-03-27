@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 
 class CustomPopupMenuItem<T> extends PopupMenuItem<T> {
   final IconData icon;
-  final Text text;
-  final T? value;
+  final Text? text;
+  final T value;
   
   CustomPopupMenuItem({
     Key? key,
     Widget? child,
     required this.value,
     required this.icon,
-    required this.text
+    this.text
   }) : super(
     key: key,
     value: value,
@@ -39,7 +39,7 @@ class _CustomPopupMenuItemState<T> extends PopupMenuItemState<T, CustomPopupMenu
         children: [
           Icon(widget.icon, color: Colors.black),
           VerticalDivider(),
-          widget.text
+          widget.text ?? Text('')
         ],
       ),
       value: widget.value
@@ -51,5 +51,6 @@ class _CustomPopupMenuItemState<T> extends PopupMenuItemState<T, CustomPopupMenu
 enum PopupActions {
   edit,
   empty,
-  clear
+  clear,
+  save,
 }

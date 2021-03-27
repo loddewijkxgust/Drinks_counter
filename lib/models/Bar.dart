@@ -2,20 +2,23 @@ import 'dart:convert';
 import 'package:drinkscounter/models/Drink.dart';
 import 'package:hive/hive.dart';
 import 'package:lzma/lzma.dart';
-part 'hive/Bar.g.dart';
+part 'Bar.g.dart';
 
 @HiveType(typeId: 2)
 class Bar extends HiveObject {
   @HiveField(0)
   String name;
   @HiveField(1)
-  List<Drink> menu = List<Drink>.empty(growable: true);
+  List<Drink> menu;
+  @HiveField(2)
+  Map<DateTime, List<Drink>>? history = Map<DateTime, List<Drink>>();
   
   Bar({
     this.name = 'Empty',
+    this.menu = const [],
   });
   
-  Bar.fromString({required String string, encoded = false, this.name = 'Empty'}) {
+  Bar.fromString({required String string, encoded = false, this.name = 'Empty', this.menu = const []}) {
     print('gestart');
     string = encoded ? utf8.decode(lzma.decode(base64.decode(string))) : string;
     print('*******************************');
@@ -98,4 +101,18 @@ class Bar extends HiveObject {
   void setName(String _name) {
     this.name = _name;
   }
+  
+  void saveToHistory() {
+    history ??= Map<DateTime, List<Drink>>();
+    history?[DateTime.now()] = this.menu;
+  }
+  
+  void deleteHistory() {
+    this.history?.clear();
+  }
+
+  void removeFromHistroy(DateTime dt) {
+    this.history?.remove(int);
+  }
+  
 }

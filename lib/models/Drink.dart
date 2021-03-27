@@ -1,5 +1,5 @@
 import 'package:hive/hive.dart';
-part 'hive/Drink.g.dart';
+part 'Drink.g.dart';
 
 @HiveType(typeId: 1)
 class Drink extends HiveObject {

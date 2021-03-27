@@ -7,7 +7,6 @@ import 'package:drinkscounter/Settings.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class BarDrawer extends StatefulWidget {
-  
   @override
   _BarDrawerState createState() => _BarDrawerState();
 }
@@ -19,8 +18,6 @@ class _BarDrawerState extends State<BarDrawer> {
 
   @override
   Widget build(BuildContext context) {
-    print('Drawer built');
-    print(bars.get(vals.get('last'))?.key);
     bar = bars.get(vals.get('last')) ?? bar;
     
     return Drawer(
@@ -165,16 +162,13 @@ class _BarDrawerState extends State<BarDrawer> {
 
                       try {
                         String qrString = await FlutterBarcodeScanner.scanBarcode('#ff0000', 'Cancel', true, ScanMode.QR);
-                        print('========= $qrString}');
                         Bar bar = new Bar.fromString(string: qrString, encoded: true);
-                        //Bar bar = JSONParse.strToBar(await FlutterBarcodeScanner.scanBarcode('#ff0000', 'Cancel', true, ScanMode.QR), encoded: true);
                         bars.add(bar);
                         vals.put('last', bars.keyAt(bars.length-1));
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text('${bar.name} added'))
-                        );
+                        
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('${bar.name} added')));
                       } catch (e) {
-                        print('Bardrawer:183: $e}');
+                        print('Tried and Caught: Bardrawer:174: $e}');
                       }
                       setState(() {});
                       Navigator.pop(context);
@@ -190,4 +184,11 @@ class _BarDrawerState extends State<BarDrawer> {
       ),
     );
   }
+
+//  @override
+//  void dispose() {
+//    bars.close();
+//    vals.close();
+//    super.dispose();
+//  }
 }

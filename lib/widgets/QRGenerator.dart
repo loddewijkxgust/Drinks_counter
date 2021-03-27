@@ -46,4 +46,11 @@ class _QRGeneratorState extends State<QRGenerator> {
       ],
     );
   }
+
+//  @override
+//  void dispose() {
+//    bars.close();
+//    vals.close();
+//    super.dispose();
+//  }
 }

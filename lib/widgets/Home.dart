@@ -1,4 +1,5 @@
 import 'package:drinkscounter/Settings.dart';
+import 'package:drinkscounter/ad_helper.dart';
 import 'package:drinkscounter/models/Bar.dart';
 import 'package:drinkscounter/models/Drink.dart';
 import 'package:drinkscounter/widgets/AddBarForm.dart';
@@ -11,11 +12,15 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:drinkscounter/widgets/DrinkTile.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 
 class Home extends StatefulWidget {
+  
+
+  // TODO: Load an ad
   @override
   _HomeState createState() => _HomeState();
 }
@@ -30,25 +35,50 @@ class _HomeState extends State<Home> {
   Bar bar = Bar.empty();
   Bar testBar = Bar.empty();
   
+  late BannerAd _ad;
+  
+  bool _isAdLoaded = false;
+  
+
+  Future<InitializationStatus> _initGoogleMobileAds() {
+    // TODO: Initialize Google Mobile Ads SDK
+    return MobileAds.instance.initialize();
+  }
+  
   @override
   void initState() {
+    _initGoogleMobileAds();
     try {
       bar =  bars.get( vals.get('last') ?? bars.keys.elementAt(0))!;
     } catch (e) {
       bar = Bar.empty();
-      bar = new Bar(name: 'Lege bar');
     }
     
-//    try {
-//      Bar b = JSONParse.jsonToBar('{"name":"Jeugdhuis Impuls","menu":[["Stella 25",1.5],["Stella 33",1.7],["Stella 50",3],["Duvel",2],["Westmalle dubbel",2.2],["Westmalle tripel",2.2],["Ice tea",1.5]]}');
-//      String s = JSONParse.barToJson(b);
-//      bars.add(JSONParse.jsonToBar(s));
-//    } catch(e) {
-//      print('Iets mis: $e');
-//    }
+    _ad = BannerAd(
+      adUnitId: AdHelper.bannerAdUnitId,
+      size: AdSize.banner,
+      request: AdRequest(),
+      listener: AdListener(
+        onAdLoaded: (_) {
+          setState(() {
+            _isAdLoaded = true;
+          });
+        },
+        onAdFailedToLoad: (ad, error) {
+          // Releases an ad resource when it fails to load
+          ad.dispose();
+      
+          print('Ad load failed (code=${error.code} message=${error.message})');
+        },
+      ),
+    );
+    _ad.load();
+    
     
     super.initState();
   }
+  
+
   
   @override
   Widget build(BuildContext context) {
@@ -57,13 +87,24 @@ class _HomeState extends State<Home> {
       builder: (context, widget) {
         bar = bars.get(vals.get('last')) ?? Bar.empty();
         print('--------------Built');
-        
+        print(AdSize.banner.width);
+        print(AdSize.banner.height);
         
         return Scaffold(
+          
+          bottomSheet: Container(
+            width: double.infinity,
+            height: _ad.size.height.toDouble(),
+            alignment: Alignment.center,
+            child: AdWidget(
+              ad: _ad
+            ),
+          ),
+        
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         
         appBar: AppBar(
-          backgroundColor: Theme.of(context).primaryColor,
+          backgroundColor: _isAdLoaded ? Theme.of(context).primaryColor : Colors.teal,
           title: Text(bar.name),
           centerTitle: true,
           actions: [
@@ -93,6 +134,9 @@ class _HomeState extends State<Home> {
                 itemCount: bar.menu.length,
                 itemBuilder: (BuildContext context, int index) {
                   Drink curDrink = bar.menu[index];
+                  
+                  
+                  
                   return Dismissible(
                     onDismissed: (direction) {
                       setState(() {
@@ -102,8 +146,7 @@ class _HomeState extends State<Home> {
                     key: ValueKey(curDrink),
                     child: DrinkTile(
                       drink: curDrink,
-                      //key: ValueKey(curDrink.key)
-                      key: ValueKey(curDrink), //(new Random()).nextInt(1000000)),
+                      key: ValueKey(curDrink),
                       delete: () {
                         setState(() {
                           bar.removeDrink(curDrink);
@@ -169,26 +212,13 @@ class _HomeState extends State<Home> {
           ),
         ),
         
-  
-  
-  
         
         drawer: BarDrawer(),
 
-//      bottomSheet: Container(
-//        child: AdmobBanner(
-//          adUnitId: 'ca-app-pub-3940256099942544/6300978111',
-//          adSize: AdmobBannerSize.ADAPTIVE_BANNER(width: 200),
-//          onBannerCreated: (a) {
-//            print('Banner created');
-//          },
-//        ),
-//        color: Colors.yellowAccent,
-//      ),
 
-      
-  
+        
         floatingActionButton:  SpeedDial(
+          marginBottom: _isAdLoaded ? 70 : 16,
           overlayOpacity: 0.4,
           icon: Icons.menu,
           backgroundColor: Theme.of(context).primaryColor,
@@ -240,7 +270,8 @@ class _HomeState extends State<Home> {
                     return SimpleDialog(
                       titleTextStyle: TextStyle(fontSize: 30),
                       children: [
-                        Text(vals.get('err'))
+                        Text('Ad loaded: $_isAdLoaded'),
+                        Text('Release mode: $kReleaseMode')
                       ],
                     );
                   });
@@ -252,4 +283,11 @@ class _HomeState extends State<Home> {
       }
     );
   }
+
+//  @override
+//  void dispose() {
+//    bars.close();
+//    vals.close();
+//    super.dispose();
+//  }
 }

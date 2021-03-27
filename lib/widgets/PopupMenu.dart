@@ -17,41 +17,79 @@ class PopupMenu extends StatelessWidget {
         CustomPopupMenuItem(
           icon: Icons.edit,
           text: Text('Edit name'),
-          value: PopupActions.edit,
-        ),
-       CustomPopupMenuItem(
-         icon: Icons.delete,
-         text: Text('Clear bar'),
-         value: PopupActions.clear,
-       ),
-        CustomPopupMenuItem(
-          icon: Icons.clear,
-          text: Text('Reset amount'),
-          value: PopupActions.empty,
-        )
-      ],
-      
-      onSelected: (result) async {
-        print(result);
-        switch (result) {
-          case PopupActions.edit:
+          value: () async {
             await showDialog(
               context: context,
               builder: (BuildContext context) => AddBarForm(false),
             );
-            break;
-            
-          case PopupActions.clear:
+          },
+        ),
+        
+        CustomPopupMenuItem(
+          icon: Icons.delete,
+          text: Text('Delete bar'),
+          value: () {
             bar.clear();
             bar.save();
-            break;
-          
-          case PopupActions.empty:
+          },
+        ),
+        
+        CustomPopupMenuItem(
+          icon: Icons.clear,
+          text: Text('Reset amount'),
+          value: () {
             bar.clearAmount();
             bar.save();
-            break;
-        }
-      },
+          },
+        ),
+        
+        CustomPopupMenuItem(
+          icon: Icons.save,
+          text: Text('Save'),
+          value: () {
+            bar.saveToHistory();
+            ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Added to history')));
+            bar.save();
+            print(bar.history?.length);
+            bar.history?.forEach((key, value) {
+              print('Key: $key ==> Value: $value');
+            });
+          },
+        ),
+        
+        CustomPopupMenuItem(
+          icon: Icons.history,
+          text: Text('History'),
+          value: () async {
+            
+            await showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return Dialog(
+                  child: LimitedBox(
+                      child: ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: bar.history?.length,
+                        itemBuilder: (context, index) {
+                          return ListView.builder(
+                            shrinkWrap: true,
+                            itemCount: bar.history?[index]?.length,
+                            itemBuilder: (context, i) {
+                              return Text(bar.history?[index]?[i].name ?? 'leeg');
+                            }
+                          );
+                        }
+                      ),
+                      maxHeight: 300,
+                    ),
+                );
+              });
+          }
+        )
+        
+      ],
+      
+      onSelected: (result) => (result as Function)(),
     );
   }
 }

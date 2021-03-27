@@ -31,11 +31,16 @@ dependencies:
   permission_handler: ^6.1.1
   path_provider: ^2.0.1
   lzma: ^1.0.1
+  google_mobile_ads:
+    git:
+      url: git://github.com/loddewijkxgust/googleads.git
+
 
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
-
+  hive_generator: ^1.0.0 #flutter packages pub run build_runner build
+  build_runner: ^1.11.5
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
