@@ -11,8 +11,8 @@
 9-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.CAMERA" />
-11-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:41:5-81
-11-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:41:22-62
+11-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:44:5-81
+11-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:44:22-62
 12
 13    <uses-feature android:name="android.hardware.camera" />
 13-->[:flutter_barcode_scanner] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\flutter_barcode_scanner\intermediates\library_manifest\release\AndroidManifest.xml:11:5-60
@@ -21,100 +21,357 @@
 15    <uses-permission android:name="android.permission.FLASHLIGHT" />
 15-->[:flutter_barcode_scanner] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\flutter_barcode_scanner\intermediates\library_manifest\release\AndroidManifest.xml:13:5-69
 15-->[:flutter_barcode_scanner] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\flutter_barcode_scanner\intermediates\library_manifest\release\AndroidManifest.xml:13:22-66
-16
-17    <application
-17-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:3:4-40:19
-18        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-18-->[androidx.core:core:1.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\2e94107f30f39be366a17347c2bf100b\core-1.1.0\AndroidManifest.xml:24:18-86
-19        android:icon="@mipmap/ic_launcher"
-19-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:5:9-43
-20        android:label="drinkscounter"
-20-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:4:9-38
-21        android:largeHeap="true"
-21-->[:flutter_barcode_scanner] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\flutter_barcode_scanner\intermediates\library_manifest\release\AndroidManifest.xml:16:9-33
-22        android:theme="@style/Theme.AppCompat.NoActionBar" >
-22-->[:flutter_barcode_scanner] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\flutter_barcode_scanner\intermediates\library_manifest\release\AndroidManifest.xml:17:9-59
-23        <activity
-23-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:6:9-34:20
-24            android:name="com.gust.drinkscounter.MainActivity"
-24-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:7:13-41
-25            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-25-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:10:13-163
-26            android:hardwareAccelerated="true"
-26-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:11:13-47
-27            android:launchMode="singleTop"
-27-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:8:13-43
-28            android:theme="@style/LaunchTheme"
-28-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:9:13-47
-29            android:windowSoftInputMode="adjustResize" >
-29-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:12:13-55
-30
-31            <!--
-32                 Specifies an Android theme to apply to this Activity as soon as
-33                 the Android process has started. This theme is visible to the user
-34                 while the Flutter UI initializes. After that, this theme continues
-35                 to determine the Window background behind the Flutter UI.
-36            -->
-37            <meta-data
-37-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:17:13-20:17
-38                android:name="io.flutter.embedding.android.NormalTheme"
-38-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:18:15-70
-39                android:resource="@style/NormalTheme" />
-39-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:19:15-52
-40            <!--
-41                 Displays an Android View that continues showing the launch screen
-42                 Drawable until Flutter paints its first frame, then this splash
-43                 screen fades out. A splash screen is useful to avoid any visual
-44                 gap between the end of Android's launch screen and the painting of
-45                 Flutter's first frame.
-46            -->
-47            <meta-data
-47-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:26:13-29:17
-48                android:name="io.flutter.embedding.android.SplashScreenDrawable"
-48-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:27:15-79
-49                android:resource="@drawable/launch_background" />
-49-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:28:15-61
-50
-51            <intent-filter>
-51-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:30:13-33:29
-52                <action android:name="android.intent.action.MAIN" />
-52-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:31:17-68
-52-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:31:25-66
+16    <uses-permission android:name="android.permission.INTERNET" />
+16-->[:google_mobile_ads] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\google_mobile_ads\intermediates\library_manifest\release\AndroidManifest.xml:7:5-67
+16-->[:google_mobile_ads] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\google_mobile_ads\intermediates\library_manifest\release\AndroidManifest.xml:7:22-64
+17    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Android package visibility setting -->
+17-->[com.google.android.gms:play-services-ads-lite:19.7.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\b2f493b0c5a6d618f478a2e0e60ec2cf\jetified-play-services-ads-lite-19.7.0\AndroidManifest.xml:24:5-79
+17-->[com.google.android.gms:play-services-ads-lite:19.7.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\b2f493b0c5a6d618f478a2e0e60ec2cf\jetified-play-services-ads-lite-19.7.0\AndroidManifest.xml:24:22-76
+18    <queries>
+18-->[com.google.android.gms:play-services-ads-lite:19.7.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\b2f493b0c5a6d618f478a2e0e60ec2cf\jetified-play-services-ads-lite-19.7.0\AndroidManifest.xml:27:5-43:15
+19
+20        <!-- For browser content -->
+21        <intent>
+21-->[com.google.android.gms:play-services-ads-lite:19.7.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\b2f493b0c5a6d618f478a2e0e60ec2cf\jetified-play-services-ads-lite-19.7.0\AndroidManifest.xml:30:9-36:18
+22            <action android:name="android.intent.action.VIEW" />
+22-->[com.google.android.gms:play-services-ads-lite:19.7.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\b2f493b0c5a6d618f478a2e0e60ec2cf\jetified-play-services-ads-lite-19.7.0\AndroidManifest.xml:31:13-65
+22-->[com.google.android.gms:play-services-ads-lite:19.7.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\b2f493b0c5a6d618f478a2e0e60ec2cf\jetified-play-services-ads-lite-19.7.0\AndroidManifest.xml:31:21-62
+23
+24            <category android:name="android.intent.category.BROWSABLE" />
+24-->[com.google.android.gms:play-services-ads-lite:19.7.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\b2f493b0c5a6d618f478a2e0e60ec2cf\jetified-play-services-ads-lite-19.7.0\AndroidManifest.xml:33:13-74
+24-->[com.google.android.gms:play-services-ads-lite:19.7.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\b2f493b0c5a6d618f478a2e0e60ec2cf\jetified-play-services-ads-lite-19.7.0\AndroidManifest.xml:33:23-71
+25
+26            <data android:scheme="https" />
+26-->[com.google.android.gms:play-services-ads-lite:19.7.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\b2f493b0c5a6d618f478a2e0e60ec2cf\jetified-play-services-ads-lite-19.7.0\AndroidManifest.xml:35:13-44
+26-->[com.google.android.gms:play-services-ads-lite:19.7.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\b2f493b0c5a6d618f478a2e0e60ec2cf\jetified-play-services-ads-lite-19.7.0\AndroidManifest.xml:35:19-41
+27        </intent>
+28        <!-- End of browser content -->
+29        <!-- For CustomTabsService -->
+30        <intent>
+30-->[com.google.android.gms:play-services-ads-lite:19.7.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\b2f493b0c5a6d618f478a2e0e60ec2cf\jetified-play-services-ads-lite-19.7.0\AndroidManifest.xml:39:9-41:18
+31            <action android:name="android.support.customtabs.action.CustomTabsService" />
+31-->[com.google.android.gms:play-services-ads-lite:19.7.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\b2f493b0c5a6d618f478a2e0e60ec2cf\jetified-play-services-ads-lite-19.7.0\AndroidManifest.xml:40:13-90
+31-->[com.google.android.gms:play-services-ads-lite:19.7.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\b2f493b0c5a6d618f478a2e0e60ec2cf\jetified-play-services-ads-lite-19.7.0\AndroidManifest.xml:40:21-87
+32        </intent>
+33        <!-- End of CustomTabsService -->
+34    </queries>
+35
+36    <uses-permission android:name="android.permission.WAKE_LOCK" />
+36-->[com.google.android.gms:play-services-measurement-sdk-api:17.5.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\6f95add04bd0d6e97fc5ba42883d9ad6\jetified-play-services-measurement-sdk-api-17.5.0\AndroidManifest.xml:25:5-68
+36-->[com.google.android.gms:play-services-measurement-sdk-api:17.5.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\6f95add04bd0d6e97fc5ba42883d9ad6\jetified-play-services-measurement-sdk-api-17.5.0\AndroidManifest.xml:25:22-65
+37    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+37-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:27:5-81
+37-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:27:22-78
+38
+39    <application
+39-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:3:4-43:19
+40        android:name="androidx.multidex.MultiDexApplication"
+41        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+41-->[androidx.core:core:1.2.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\544eab86e7823cb4f6f6bbcd34094c52\core-1.2.0\AndroidManifest.xml:24:18-86
+42        android:icon="@mipmap/ic_launcher"
+42-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:5:9-43
+43        android:label="drinkscounter"
+43-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:4:9-38
+44        android:largeHeap="true"
+44-->[:flutter_barcode_scanner] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\flutter_barcode_scanner\intermediates\library_manifest\release\AndroidManifest.xml:16:9-33
+45        android:theme="@style/Theme.AppCompat.NoActionBar" >
+45-->[:flutter_barcode_scanner] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\flutter_barcode_scanner\intermediates\library_manifest\release\AndroidManifest.xml:17:9-59
+46        <activity
+46-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:6:9-34:20
+47            android:name="com.gust.drinkscounter.MainActivity"
+47-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:7:13-41
+48            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+48-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:10:13-163
+49            android:hardwareAccelerated="true"
+49-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:11:13-47
+50            android:launchMode="singleTop"
+50-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:8:13-43
+51            android:theme="@style/LaunchTheme"
+51-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:9:13-47
+52            android:windowSoftInputMode="adjustResize" >
+52-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:12:13-55
 53
-54                <category android:name="android.intent.category.LAUNCHER" />
-54-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:32:17-76
-54-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:32:27-74
-55            </intent-filter>
-56        </activity>
-57        <!--
-58             Don't delete the meta-data below.
-59             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
-60        -->
-61        <meta-data
-61-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:37:9-39:33
-62            android:name="flutterEmbedding"
-62-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:38:13-44
-63            android:value="2" />
-63-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:39:13-30
-64
-65        <activity android:name="com.amolg.flutterbarcodescanner.BarcodeCaptureActivity" />
-65-->[:flutter_barcode_scanner] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\flutter_barcode_scanner\intermediates\library_manifest\release\AndroidManifest.xml:18:9-91
-65-->[:flutter_barcode_scanner] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\flutter_barcode_scanner\intermediates\library_manifest\release\AndroidManifest.xml:18:19-88
-66        <activity
-66-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\7c879cb157fab2c9a5d74c3d70fd64e3\jetified-play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
-67            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-67-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\7c879cb157fab2c9a5d74c3d70fd64e3\jetified-play-services-base-17.0.0\AndroidManifest.xml:24:13-79
-68            android:exported="false"
-68-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\7c879cb157fab2c9a5d74c3d70fd64e3\jetified-play-services-base-17.0.0\AndroidManifest.xml:25:13-37
-69            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-69-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\7c879cb157fab2c9a5d74c3d70fd64e3\jetified-play-services-base-17.0.0\AndroidManifest.xml:26:13-72
-70
-71        <meta-data
-71-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\3c8e7eb3d21ac94d08f658f6d8a1c9f3\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
-72            android:name="com.google.android.gms.version"
-72-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\3c8e7eb3d21ac94d08f658f6d8a1c9f3\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
-73            android:value="@integer/google_play_services_version" />
-73-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\3c8e7eb3d21ac94d08f658f6d8a1c9f3\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
-74    </application>
-75
-76</manifest>
+54            <!--
+55                 Specifies an Android theme to apply to this Activity as soon as
+56                 the Android process has started. This theme is visible to the user
+57                 while the Flutter UI initializes. After that, this theme continues
+58                 to determine the Window background behind the Flutter UI.
+59            -->
+60            <meta-data
+60-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:17:13-20:17
+61                android:name="io.flutter.embedding.android.NormalTheme"
+61-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:18:15-70
+62                android:resource="@style/NormalTheme" />
+62-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:19:15-52
+63            <!--
+64                 Displays an Android View that continues showing the launch screen
+65                 Drawable until Flutter paints its first frame, then this splash
+66                 screen fades out. A splash screen is useful to avoid any visual
+67                 gap between the end of Android's launch screen and the painting of
+68                 Flutter's first frame.
+69            -->
+70            <meta-data
+70-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:26:13-29:17
+71                android:name="io.flutter.embedding.android.SplashScreenDrawable"
+71-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:27:15-79
+72                android:resource="@drawable/launch_background" />
+72-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:28:15-61
+73
+74            <intent-filter>
+74-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:30:13-33:29
+75                <action android:name="android.intent.action.MAIN" />
+75-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:31:17-68
+75-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:31:25-66
+76
+77                <category android:name="android.intent.category.LAUNCHER" />
+77-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:32:17-76
+77-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:32:27-74
+78            </intent-filter>
+79        </activity>
+80        <!--
+81             Don't delete the meta-data below.
+82             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+83        -->
+84        <meta-data
+84-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:37:9-39:33
+85            android:name="flutterEmbedding"
+85-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:38:13-44
+86            android:value="2" />
+86-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:39:13-30
+87        <meta-data
+87-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:40:8-42:68
+88            android:name="com.google.android.gms.ads.APPLICATION_ID"
+88-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:41:12-68
+89            android:value="ca-app-pub-2032072582529697~7617044029" />
+89-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:42:12-66
+90
+91        <activity android:name="com.amolg.flutterbarcodescanner.BarcodeCaptureActivity" />
+91-->[:flutter_barcode_scanner] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\flutter_barcode_scanner\intermediates\library_manifest\release\AndroidManifest.xml:18:9-91
+91-->[:flutter_barcode_scanner] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\flutter_barcode_scanner\intermediates\library_manifest\release\AndroidManifest.xml:18:19-88
+92
+93        <meta-data
+93-->[:google_mobile_ads] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\google_mobile_ads\intermediates\library_manifest\release\AndroidManifest.xml:10:9-12:36
+94            android:name="io.flutter.embedded_views_preview"
+94-->[:google_mobile_ads] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\google_mobile_ads\intermediates\library_manifest\release\AndroidManifest.xml:11:13-61
+95            android:value="true" />
+95-->[:google_mobile_ads] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\google_mobile_ads\intermediates\library_manifest\release\AndroidManifest.xml:12:13-33
+96
+97        <activity
+97-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\7c879cb157fab2c9a5d74c3d70fd64e3\jetified-play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
+98            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+98-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\7c879cb157fab2c9a5d74c3d70fd64e3\jetified-play-services-base-17.0.0\AndroidManifest.xml:24:13-79
+99            android:exported="false"
+99-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\7c879cb157fab2c9a5d74c3d70fd64e3\jetified-play-services-base-17.0.0\AndroidManifest.xml:25:13-37
+100            android:theme="@android:style/Theme.Translucent.NoTitleBar" /> <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
+100-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\7c879cb157fab2c9a5d74c3d70fd64e3\jetified-play-services-base-17.0.0\AndroidManifest.xml:26:13-72
+101        <activity
+101-->[com.google.android.gms:play-services-ads-lite:19.7.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\b2f493b0c5a6d618f478a2e0e60ec2cf\jetified-play-services-ads-lite-19.7.0\AndroidManifest.xml:48:9-52:64
+102            android:name="com.google.android.gms.ads.AdActivity"
+102-->[com.google.android.gms:play-services-ads-lite:19.7.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\b2f493b0c5a6d618f478a2e0e60ec2cf\jetified-play-services-ads-lite-19.7.0\AndroidManifest.xml:49:13-65
+103            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+103-->[com.google.android.gms:play-services-ads-lite:19.7.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\b2f493b0c5a6d618f478a2e0e60ec2cf\jetified-play-services-ads-lite-19.7.0\AndroidManifest.xml:50:13-122
+104            android:exported="false"
+104-->[com.google.android.gms:play-services-ads-lite:19.7.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\b2f493b0c5a6d618f478a2e0e60ec2cf\jetified-play-services-ads-lite-19.7.0\AndroidManifest.xml:51:13-37
+105            android:theme="@android:style/Theme.Translucent" />
+105-->[com.google.android.gms:play-services-ads-lite:19.7.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\b2f493b0c5a6d618f478a2e0e60ec2cf\jetified-play-services-ads-lite-19.7.0\AndroidManifest.xml:52:13-61
+106
+107        <provider
+107-->[com.google.android.gms:play-services-ads-lite:19.7.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\b2f493b0c5a6d618f478a2e0e60ec2cf\jetified-play-services-ads-lite-19.7.0\AndroidManifest.xml:54:9-58:39
+108            android:name="com.google.android.gms.ads.MobileAdsInitProvider"
+108-->[com.google.android.gms:play-services-ads-lite:19.7.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\b2f493b0c5a6d618f478a2e0e60ec2cf\jetified-play-services-ads-lite-19.7.0\AndroidManifest.xml:55:13-76
+109            android:authorities="com.gust.drinkscounter.mobileadsinitprovider"
+109-->[com.google.android.gms:play-services-ads-lite:19.7.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\b2f493b0c5a6d618f478a2e0e60ec2cf\jetified-play-services-ads-lite-19.7.0\AndroidManifest.xml:56:13-73
+110            android:exported="false"
+110-->[com.google.android.gms:play-services-ads-lite:19.7.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\b2f493b0c5a6d618f478a2e0e60ec2cf\jetified-play-services-ads-lite-19.7.0\AndroidManifest.xml:57:13-37
+111            android:initOrder="100" />
+111-->[com.google.android.gms:play-services-ads-lite:19.7.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\b2f493b0c5a6d618f478a2e0e60ec2cf\jetified-play-services-ads-lite-19.7.0\AndroidManifest.xml:58:13-36
+112
+113        <service
+113-->[com.google.android.gms:play-services-ads-lite:19.7.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\b2f493b0c5a6d618f478a2e0e60ec2cf\jetified-play-services-ads-lite-19.7.0\AndroidManifest.xml:60:9-63:40
+114            android:name="com.google.android.gms.ads.AdService"
+114-->[com.google.android.gms:play-services-ads-lite:19.7.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\b2f493b0c5a6d618f478a2e0e60ec2cf\jetified-play-services-ads-lite-19.7.0\AndroidManifest.xml:61:13-64
+115            android:enabled="true"
+115-->[com.google.android.gms:play-services-ads-lite:19.7.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\b2f493b0c5a6d618f478a2e0e60ec2cf\jetified-play-services-ads-lite-19.7.0\AndroidManifest.xml:62:13-35
+116            android:exported="false" />
+116-->[com.google.android.gms:play-services-ads-lite:19.7.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\b2f493b0c5a6d618f478a2e0e60ec2cf\jetified-play-services-ads-lite-19.7.0\AndroidManifest.xml:63:13-37
+117
+118        <meta-data
+118-->[com.google.android.gms:play-services-basement:17.3.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\ca455f7b1a0447e077897016985d0894\jetified-play-services-basement-17.3.0\AndroidManifest.xml:23:9-25:69
+119            android:name="com.google.android.gms.version"
+119-->[com.google.android.gms:play-services-basement:17.3.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\ca455f7b1a0447e077897016985d0894\jetified-play-services-basement-17.3.0\AndroidManifest.xml:24:13-58
+120            android:value="@integer/google_play_services_version" />
+120-->[com.google.android.gms:play-services-basement:17.3.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\ca455f7b1a0447e077897016985d0894\jetified-play-services-basement-17.3.0\AndroidManifest.xml:25:13-66
+121
+122        <provider
+122-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:30:9-36:35
+123            android:name="androidx.work.impl.WorkManagerInitializer"
+123-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:31:13-69
+124            android:authorities="com.gust.drinkscounter.workmanager-init"
+124-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:32:13-68
+125            android:directBootAware="false"
+125-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:33:13-44
+126            android:exported="false"
+126-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:34:13-37
+127            android:multiprocess="true" />
+127-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:35:13-40
+128
+129        <service
+129-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:38:9-43:35
+130            android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
+130-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:39:13-88
+131            android:directBootAware="false"
+131-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:40:13-44
+132            android:enabled="@bool/enable_system_alarm_service_default"
+132-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:41:13-72
+133            android:exported="false" />
+133-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:42:13-37
+134        <service
+134-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:44:9-50:35
+135            android:name="androidx.work.impl.background.systemjob.SystemJobService"
+135-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:45:13-84
+136            android:directBootAware="false"
+136-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:46:13-44
+137            android:enabled="@bool/enable_system_job_service_default"
+137-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:47:13-70
+138            android:exported="true"
+138-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:48:13-36
+139            android:permission="android.permission.BIND_JOB_SERVICE" />
+139-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:49:13-69
+140
+141        <receiver
+141-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:52:9-57:35
+142            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
+142-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:53:13-88
+143            android:directBootAware="false"
+143-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:54:13-44
+144            android:enabled="true"
+144-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:55:13-35
+145            android:exported="false" />
+145-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:56:13-37
+146        <receiver
+146-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:58:9-68:20
+147            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
+147-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:59:13-106
+148            android:directBootAware="false"
+148-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:60:13-44
+149            android:enabled="false"
+149-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:61:13-36
+150            android:exported="false" >
+150-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:62:13-37
+151            <intent-filter>
+151-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:64:13-67:29
+152                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+152-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:65:17-87
+152-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:65:25-84
+153                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+153-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:66:17-90
+153-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:66:25-87
+154            </intent-filter>
+155        </receiver>
+156        <receiver
+156-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:69:9-79:20
+157            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
+157-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:70:13-104
+158            android:directBootAware="false"
+158-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:71:13-44
+159            android:enabled="false"
+159-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:72:13-36
+160            android:exported="false" >
+160-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:73:13-37
+161            <intent-filter>
+161-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:75:13-78:29
+162                <action android:name="android.intent.action.BATTERY_OKAY" />
+162-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:76:17-77
+162-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:76:25-74
+163                <action android:name="android.intent.action.BATTERY_LOW" />
+163-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:77:17-76
+163-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:77:25-73
+164            </intent-filter>
+165        </receiver>
+166        <receiver
+166-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:80:9-90:20
+167            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
+167-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:81:13-104
+168            android:directBootAware="false"
+168-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:82:13-44
+169            android:enabled="false"
+169-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:83:13-36
+170            android:exported="false" >
+170-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:84:13-37
+171            <intent-filter>
+171-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:86:13-89:29
+172                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
+172-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:87:17-83
+172-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:87:25-80
+173                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
+173-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:88:17-82
+173-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:88:25-79
+174            </intent-filter>
+175        </receiver>
+176        <receiver
+176-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:91:9-100:20
+177            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
+177-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:92:13-103
+178            android:directBootAware="false"
+178-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:93:13-44
+179            android:enabled="false"
+179-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:94:13-36
+180            android:exported="false" >
+180-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:95:13-37
+181            <intent-filter>
+181-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:97:13-99:29
+182                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+182-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:98:17-79
+182-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:98:25-76
+183            </intent-filter>
+184        </receiver>
+185        <receiver
+185-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:101:9-112:20
+186            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
+186-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:102:13-88
+187            android:directBootAware="false"
+187-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:103:13-44
+188            android:enabled="false"
+188-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:104:13-36
+189            android:exported="false" >
+189-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:105:13-37
+190            <intent-filter>
+190-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:107:13-111:29
+191                <action android:name="android.intent.action.BOOT_COMPLETED" />
+191-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:108:17-79
+191-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:108:25-76
+192                <action android:name="android.intent.action.TIME_SET" />
+192-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:109:17-73
+192-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:109:25-70
+193                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+193-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:110:17-81
+193-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:110:25-78
+194            </intent-filter>
+195        </receiver>
+196        <receiver
+196-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:113:9-122:20
+197            android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
+197-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:114:13-99
+198            android:directBootAware="false"
+198-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:115:13-44
+199            android:enabled="@bool/enable_system_alarm_service_default"
+199-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:116:13-72
+200            android:exported="false" >
+200-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:117:13-37
+201            <intent-filter>
+201-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:119:13-121:29
+202                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
+202-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:120:17-98
+202-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:120:25-95
+203            </intent-filter>
+204        </receiver>
+205
+206        <service
+206-->[androidx.room:room-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\5ce2d6d21ced6acd0886fcf25e28e371\room-runtime-2.1.0\AndroidManifest.xml:25:9-27:40
+207            android:name="androidx.room.MultiInstanceInvalidationService"
+207-->[androidx.room:room-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\5ce2d6d21ced6acd0886fcf25e28e371\room-runtime-2.1.0\AndroidManifest.xml:26:13-74
+208            android:exported="false" />
+208-->[androidx.room:room-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\5ce2d6d21ced6acd0886fcf25e28e371\room-runtime-2.1.0\AndroidManifest.xml:27:13-37
+209    </application>
+210
+211</manifest>

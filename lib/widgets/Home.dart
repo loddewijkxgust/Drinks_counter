@@ -20,7 +20,6 @@ import 'package:hive_flutter/hive_flutter.dart';
 class Home extends StatefulWidget {
   
 
-  // TODO: Load an ad
   @override
   _HomeState createState() => _HomeState();
 }
@@ -36,12 +35,11 @@ class _HomeState extends State<Home> {
   Bar testBar = Bar.empty();
   
   late BannerAd _ad;
-  
   bool _isAdLoaded = false;
+  
   
 
   Future<InitializationStatus> _initGoogleMobileAds() {
-    // TODO: Initialize Google Mobile Ads SDK
     return MobileAds.instance.initialize();
   }
   
@@ -65,15 +63,12 @@ class _HomeState extends State<Home> {
           });
         },
         onAdFailedToLoad: (ad, error) {
-          // Releases an ad resource when it fails to load
           ad.dispose();
-      
           print('Ad load failed (code=${error.code} message=${error.message})');
         },
       ),
     );
     _ad.load();
-    
     
     super.initState();
   }
@@ -113,40 +108,42 @@ class _HomeState extends State<Home> {
         ),
         
         
-        body: bars.isNotEmpty ? (bar.menu.isNotEmpty ? Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisAlignment: MainAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            ListTile(
-              title:
-              Center(
-                child: Text(
-                  bar.menu.fold(0, (num? value, Drink drink) => value! + drink.amount * drink.price).toStringAsFixed(2)
+        body: Padding(
+          padding: EdgeInsets.only(bottom: 0),
+          child: (bars.isNotEmpty ? (bar.menu.isNotEmpty ? Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ListTile(
+                title:
+                Center(
+                  child: Text(
+                    bar.menu.fold(0, (num? value, Drink drink) => value! + drink.amount * drink.price).toStringAsFixed(2)
+                  ),
                 ),
+                tileColor: Colors.teal,
               ),
-              tileColor: Colors.teal,
-            ),
-            
-            Expanded(
-              child: ReorderableListView.builder(
-                shrinkWrap: true,
-                itemCount: bar.menu.length,
-                itemBuilder: (BuildContext context, int index) {
-                  Drink curDrink = bar.menu[index];
-                  
-                  
-                  
-                  return Dismissible(
-                    onDismissed: (direction) {
-                      setState(() {
-                        bar.removeDrink(curDrink);
-                      });
-                    },
-                    key: ValueKey(curDrink),
-                    child: DrinkTile(
+              
+              Expanded(
+                child: ReorderableListView.builder(
+                  shrinkWrap: true,
+                  itemCount: bar.menu.length + 1,
+                  itemBuilder: (BuildContext context, int index) {
+                    print(index);
+                    if (index >= bar.menu.length) {
+                      print('${bar.menu.length} gelijk');
+                      return Container(
+                        color: Colors.tealAccent,
+                        key: UniqueKey(),
+                        height: _ad.size.height.toDouble(),
+                      );
+                    }
+                    
+                    Drink curDrink = bar.menu[index];
+                    DrinkTile drinkTile = DrinkTile(
                       drink: curDrink,
-                      key: ValueKey(curDrink),
+                      key: ValueKey(UniqueKey()),
                       delete: () {
                         setState(() {
                           bar.removeDrink(curDrink);
@@ -165,51 +162,63 @@ class _HomeState extends State<Home> {
                           bar.save();
                         });
                       },
-                    ),
-                  );
-                },
-                onReorder: (int oldIndex, int newIndex) {
-                  bar.swap(oldIndex, newIndex);
-                  bar.save();
+                    );
+                    
+                    return Dismissible(
+                      onDismissed: (direction) {
+                        setState(() {
+                          bar.removeDrink(curDrink);
+                        });
+                      },
+                      
+                      key: drinkTile.key,
+                      
+                      child: drinkTile,
+                    );
                   },
+                  onReorder: (int oldIndex, int newIndex) {
+                    bar.swap(oldIndex, newIndex);
+                    bar.save();
+                    },
+                ),
+              ),
+            ],
+          ) : ListTile(
+            title: Center(
+              child: TextButton(
+                child: Text(
+                  '+ Add drink',
+                  style: TextStyle(
+                    fontSize: Settings.fontSize,
+                  ),
+                ),
+                onPressed: () async {
+                  await showDialog(
+                    context: context,
+                    builder: (BuildContext context) => AddDrinkForm(),
+                  );
+                  setState(() {});
+                },
               ),
             ),
-          ],
-        ) : ListTile(
-          title: Center(
+          )) : Center(
             child: TextButton(
               child: Text(
-                '+ Add drink',
+                '+ Add bar',
                 style: TextStyle(
+                  color: Colors.black,
                   fontSize: Settings.fontSize,
                 ),
               ),
               onPressed: () async {
                 await showDialog(
                   context: context,
-                  builder: (BuildContext context) => AddDrinkForm(),
+                  builder: (BuildContext context) => AddBarForm(true)
                 );
                 setState(() {});
-              },
+                },
             ),
-          ),
-        )) : Center(
-          child: TextButton(
-            child: Text(
-              '+ Add bar',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: Settings.fontSize,
-              ),
-            ),
-            onPressed: () async {
-              await showDialog(
-                context: context,
-                builder: (BuildContext context) => AddBarForm(true)
-              );
-              setState(() {});
-              },
-          ),
+          )),
         ),
         
         
@@ -260,6 +269,16 @@ class _HomeState extends State<Home> {
             ),
       
       
+            SpeedDialChild(
+              child: Icon(Icons.local_drink),
+              onTap: () {
+                setState(() {
+                  bar.addDrink(duvel);
+                  bar.addDrink(stella);
+                  bar.addDrink(cara);
+                });
+              }
+            ),
       
             SpeedDialChild(
               child: Icon(Icons.bug_report),
@@ -277,6 +296,7 @@ class _HomeState extends State<Home> {
                   });
               }
             ),
+  
           ],
         ),
       );

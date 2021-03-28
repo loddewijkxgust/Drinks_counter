@@ -43,7 +43,7 @@ class PopupMenu extends StatelessWidget {
           },
         ),
         
-        CustomPopupMenuItem(
+/*        CustomPopupMenuItem(
           icon: Icons.save,
           text: Text('Save'),
           value: () {
@@ -56,12 +56,12 @@ class PopupMenu extends StatelessWidget {
             });
           },
         ),
-        
+
         CustomPopupMenuItem(
           icon: Icons.history,
           text: Text('History'),
           value: () async {
-            
+
             await showDialog(
               context: context,
               builder: (BuildContext context) {
@@ -85,7 +85,7 @@ class PopupMenu extends StatelessWidget {
                 );
               });
           }
-        )
+        )*/
         
       ],
       
