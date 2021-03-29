@@ -13,7 +13,6 @@ class _QRScannerState extends State<QRScanner> {
   var bars = Hive.box<Bar>('bars');
   var vals = Hive.box<dynamic>('values');
   
-  final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
   String qrString = '';
   
   @override

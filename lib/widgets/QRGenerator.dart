@@ -13,9 +13,6 @@ class _QRGeneratorState extends State<QRGenerator> {
   var vals = Hive.box<dynamic>('values');
   Bar bar = Bar.empty();
   
-  
-  
-  final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
   String qrString = '';
   
   @override

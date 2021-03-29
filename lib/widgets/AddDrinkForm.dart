@@ -73,7 +73,7 @@ class AddDrinkForm extends StatelessWidget {
                   if (_formKey.currentState?.validate() ?? false) {
                     _formKey.currentState!.save();
                     
-                    bar.addDrink(new Drink(name: this.name, price: this.price));
+                    bar.addDrink(new Drink(name: this.name, price: this.price, key: UniqueKey()));
                     bar.save();
 //                    CustomNotification(notification: Notifications.update)..dispatch(context);
                     

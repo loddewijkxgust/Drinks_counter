@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:drinkscounter/models/Drink.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:hive/hive.dart';
 import 'package:lzma/lzma.dart';
 part 'Bar.g.dart';
@@ -33,6 +34,7 @@ class Bar extends HiveObject {
       this.addDrink(new Drink(
         name: item[0],
         price: double.parse(item[1].toString()),
+        key: UniqueKey(),
       ));
     });
   }

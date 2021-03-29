@@ -20,19 +20,22 @@ class DrinkAdapter extends TypeAdapter<Drink> {
       name: fields[0] as String,
       price: fields[1] as double,
       amount: fields[2] as int,
+      key: Key(fields[3]),
     );
   }
 
   @override
   void write(BinaryWriter writer, Drink obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(4)
       ..writeByte(0)
       ..write(obj.name)
       ..writeByte(1)
       ..write(obj.price)
       ..writeByte(2)
-      ..write(obj.amount);
+      ..write(obj.amount)
+      ..writeByte(3)
+      ..write(obj.key.toString());
   }
 
   @override

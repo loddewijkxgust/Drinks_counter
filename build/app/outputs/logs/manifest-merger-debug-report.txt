@@ -8,8 +8,9 @@ MERGED from C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_coun
 MERGED from [:permission_handler] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\permission_handler\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:flutter_barcode_scanner] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-21:12
 MERGED from [:flutter_plugin_android_lifecycle] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
-MERGED from [:google_mobile_ads] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\google_mobile_ads\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-15:12
 MERGED from [:path_provider] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\path_provider\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:google_mobile_ads] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\google_mobile_ads\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-15:12
+MERGED from [:package_info] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\package_info\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.multidex:multidex:2.0.1] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\e0fd5e1ca6d8af2526223d2abecd725b\multidex-2.0.1\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\50f23f4316049b4dbfe8a24fb2e3d1c5\material-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\f419bf2442c9ba50831eeba89000c9a9\appcompat-1.1.0\AndroidManifest.xml:17:1-24:12
@@ -137,7 +138,7 @@ MERGED from [com.google.android.gms:play-services-ads-base:19.7.0] C:\Users\Gust
 	android:largeHeap
 		ADDED from [:flutter_barcode_scanner] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:16:9-33
 	android:icon
-		ADDED from C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:6:9-43
+		ADDED from C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:6:9-45
 	android:theme
 		ADDED from [:flutter_barcode_scanner] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:17:9-59
 activity#com.gust.drinkscounter.MainActivity
@@ -198,10 +199,12 @@ MERGED from [:flutter_barcode_scanner] C:\Users\Gustl\Desktop\Code\Apps\Flutter\
 MERGED from [:flutter_barcode_scanner] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:flutter_plugin_android_lifecycle] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:flutter_plugin_android_lifecycle] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:google_mobile_ads] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\google_mobile_ads\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:google_mobile_ads] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\google_mobile_ads\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:path_provider] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\path_provider\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:path_provider] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\path_provider\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:google_mobile_ads] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\google_mobile_ads\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:google_mobile_ads] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\google_mobile_ads\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:package_info] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\package_info\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:package_info] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\package_info\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [androidx.multidex:multidex:2.0.1] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\e0fd5e1ca6d8af2526223d2abecd725b\multidex-2.0.1\AndroidManifest.xml:20:5-43
 MERGED from [androidx.multidex:multidex:2.0.1] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\e0fd5e1ca6d8af2526223d2abecd725b\multidex-2.0.1\AndroidManifest.xml:20:5-43
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\50f23f4316049b4dbfe8a24fb2e3d1c5\material-1.0.0\AndroidManifest.xml:20:5-44

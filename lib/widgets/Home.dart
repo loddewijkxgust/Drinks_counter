@@ -15,6 +15,7 @@ import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:package_info/package_info.dart';
 
 
 class Home extends StatefulWidget {
@@ -25,9 +26,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  Drink duvel = new Drink(name: 'Duvel', price: 2.7, amount: 3);
-  Drink stella = new Drink(name: 'Stella', price: 1.7, amount: 8);
-  Drink cara = new Drink(name: 'Cara', price: 0.2, amount: 23);
   
   Box bars = Hive.box<Bar>('bars');
   Box vals = Hive.box<dynamic>('values');
@@ -77,13 +75,14 @@ class _HomeState extends State<Home> {
   
   @override
   Widget build(BuildContext context) {
+    bars.keys;
+    bars.values.forEach((element) {
+      print(element);
+    });
     return AnimatedBuilder(
       animation: Listenable.merge([vals.listenable(), bars.listenable()]),
       builder: (context, widget) {
         bar = bars.get(vals.get('last')) ?? Bar.empty();
-        print('--------------Built');
-        print(AdSize.banner.width);
-        print(AdSize.banner.height);
         
         return Scaffold(
           
@@ -100,7 +99,7 @@ class _HomeState extends State<Home> {
         
         appBar: AppBar(
           backgroundColor: _isAdLoaded ? Theme.of(context).primaryColor : Colors.teal,
-          title: Text(bar.name),
+          title: Text('Bar: ${bar.name}'),
           centerTitle: true,
           actions: [
             PopupMenu()
@@ -130,11 +129,10 @@ class _HomeState extends State<Home> {
                   shrinkWrap: true,
                   itemCount: bar.menu.length + 1,
                   itemBuilder: (BuildContext context, int index) {
-                    print(index);
+                    
                     if (index >= bar.menu.length) {
-                      print('${bar.menu.length} gelijk');
                       return Container(
-                        color: Colors.tealAccent,
+                        color: kReleaseMode ? Theme.of(context).backgroundColor : Colors.tealAccent,
                         key: UniqueKey(),
                         height: _ad.size.height.toDouble(),
                       );
@@ -143,7 +141,7 @@ class _HomeState extends State<Home> {
                     Drink curDrink = bar.menu[index];
                     DrinkTile drinkTile = DrinkTile(
                       drink: curDrink,
-                      key: ValueKey(UniqueKey()),
+                      key: curDrink.key,
                       delete: () {
                         setState(() {
                           bar.removeDrink(curDrink);
@@ -167,7 +165,9 @@ class _HomeState extends State<Home> {
                     return Dismissible(
                       onDismissed: (direction) {
                         setState(() {
-                          bar.removeDrink(curDrink);
+                          if (index < bar.menu.length) {
+                            bar.removeDrink(curDrink);
+                          }
                         });
                       },
                       
@@ -269,20 +269,25 @@ class _HomeState extends State<Home> {
             ),
       
       
+            //if (!kReleaseMode)
             SpeedDialChild(
               child: Icon(Icons.local_drink),
               onTap: () {
                 setState(() {
-                  bar.addDrink(duvel);
-                  bar.addDrink(stella);
-                  bar.addDrink(cara);
+                  bar.addDrink(new Drink(name: 'Duvel', price: 2.7, amount: 3, key: UniqueKey()));
+                  bar.addDrink(new Drink(name: 'Stella', price: 1.7, amount: 8, key: UniqueKey()));
+                  bar.addDrink(new Drink(name: 'Cara', price: 0.2, amount: 283, key: UniqueKey()));
+                  bar.save();
                 });
-              }
+              },
             ),
-      
+            
+            //if (!kReleaseMode)
             SpeedDialChild(
               child: Icon(Icons.bug_report),
               onTap: () async {
+                PackageInfo packageInfo = await PackageInfo.fromPlatform();
+                
                 await showDialog(
                   context: context,
                   builder: (BuildContext context) {
@@ -290,13 +295,16 @@ class _HomeState extends State<Home> {
                       titleTextStyle: TextStyle(fontSize: 30),
                       children: [
                         Text('Ad loaded: $_isAdLoaded'),
-                        Text('Release mode: $kReleaseMode')
+                        Text('Release mode: $kReleaseMode'),
+                        Text('AppName: ${packageInfo.appName}'),
+                        Text('Package name: ${packageInfo.packageName}'),
+                        Text('Version: ${packageInfo.version}'),
+                        Text('Build Number: ${packageInfo.buildNumber}'),
                       ],
                     );
                   });
-              }
+              },
             ),
-  
           ],
         ),
       );

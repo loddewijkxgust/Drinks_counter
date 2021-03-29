@@ -1,7 +1,7 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="com.gust.drinkscounter"
-4    android:versionCode="1"
+4    android:versionCode="3"
 5    android:versionName="1.0.0" >
 6
 7    <uses-sdk
@@ -11,8 +11,8 @@
 9-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.CAMERA" />
-11-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:44:5-81
-11-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:44:22-62
+11-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:3:5-81
+11-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:3:22-62
 12
 13    <uses-feature android:name="android.hardware.camera" />
 13-->[:flutter_barcode_scanner] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\flutter_barcode_scanner\intermediates\library_manifest\release\AndroidManifest.xml:11:5-60
@@ -64,32 +64,32 @@
 37-->[androidx.work:work-runtime:2.1.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\96e372efa68022ead844893f90a233ee\work-runtime-2.1.0\AndroidManifest.xml:27:22-78
 38
 39    <application
-39-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:3:4-43:19
+39-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:4:4-44:19
 40        android:name="androidx.multidex.MultiDexApplication"
 41        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 41-->[androidx.core:core:1.2.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\544eab86e7823cb4f6f6bbcd34094c52\core-1.2.0\AndroidManifest.xml:24:18-86
 42        android:icon="@mipmap/ic_launcher"
-42-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:5:9-43
+42-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:6:9-43
 43        android:label="drinkscounter"
-43-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:4:9-38
+43-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:5:9-38
 44        android:largeHeap="true"
 44-->[:flutter_barcode_scanner] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\flutter_barcode_scanner\intermediates\library_manifest\release\AndroidManifest.xml:16:9-33
 45        android:theme="@style/Theme.AppCompat.NoActionBar" >
 45-->[:flutter_barcode_scanner] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\flutter_barcode_scanner\intermediates\library_manifest\release\AndroidManifest.xml:17:9-59
 46        <activity
-46-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:6:9-34:20
+46-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:7:9-35:20
 47            android:name="com.gust.drinkscounter.MainActivity"
-47-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:7:13-41
+47-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:8:13-41
 48            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-48-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:10:13-163
+48-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:11:13-163
 49            android:hardwareAccelerated="true"
-49-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:11:13-47
+49-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:12:13-47
 50            android:launchMode="singleTop"
-50-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:8:13-43
+50-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:9:13-43
 51            android:theme="@style/LaunchTheme"
-51-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:9:13-47
+51-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:10:13-47
 52            android:windowSoftInputMode="adjustResize" >
-52-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:12:13-55
+52-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:13:13-55
 53
 54            <!--
 55                 Specifies an Android theme to apply to this Activity as soon as
@@ -98,11 +98,11 @@
 58                 to determine the Window background behind the Flutter UI.
 59            -->
 60            <meta-data
-60-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:17:13-20:17
+60-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:18:13-21:17
 61                android:name="io.flutter.embedding.android.NormalTheme"
-61-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:18:15-70
+61-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:19:15-70
 62                android:resource="@style/NormalTheme" />
-62-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:19:15-52
+62-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:20:15-52
 63            <!--
 64                 Displays an Android View that continues showing the launch screen
 65                 Drawable until Flutter paints its first frame, then this splash
@@ -111,21 +111,21 @@
 68                 Flutter's first frame.
 69            -->
 70            <meta-data
-70-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:26:13-29:17
+70-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:27:13-30:17
 71                android:name="io.flutter.embedding.android.SplashScreenDrawable"
-71-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:27:15-79
+71-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:28:15-79
 72                android:resource="@drawable/launch_background" />
-72-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:28:15-61
+72-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:29:15-61
 73
 74            <intent-filter>
-74-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:30:13-33:29
+74-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:31:13-34:29
 75                <action android:name="android.intent.action.MAIN" />
-75-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:31:17-68
-75-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:31:25-66
+75-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:32:17-68
+75-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:32:25-66
 76
 77                <category android:name="android.intent.category.LAUNCHER" />
-77-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:32:17-76
-77-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:32:27-74
+77-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:33:17-76
+77-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:33:27-74
 78            </intent-filter>
 79        </activity>
 80        <!--
@@ -133,17 +133,17 @@
 82             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
 83        -->
 84        <meta-data
-84-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:37:9-39:33
+84-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:38:9-40:33
 85            android:name="flutterEmbedding"
-85-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:38:13-44
+85-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:39:13-44
 86            android:value="2" />
-86-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:39:13-30
+86-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:40:13-30
 87        <meta-data
-87-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:40:8-42:68
+87-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:41:8-43:68
 88            android:name="com.google.android.gms.ads.APPLICATION_ID"
-88-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:41:12-68
+88-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:42:12-68
 89            android:value="ca-app-pub-2032072582529697~7617044029" />
-89-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:42:12-66
+89-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:43:12-66
 90
 91        <activity android:name="com.amolg.flutterbarcodescanner.BarcodeCaptureActivity" />
 91-->[:flutter_barcode_scanner] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\flutter_barcode_scanner\intermediates\library_manifest\release\AndroidManifest.xml:18:9-91

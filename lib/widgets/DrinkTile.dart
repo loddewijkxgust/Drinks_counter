@@ -47,34 +47,39 @@ class DrinkTile extends StatelessWidget {
             Flexible(
               fit: FlexFit.tight,
               flex: 5,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    TextButton(
-                      child: Icon(Icons.remove),
-                      onPressed: () {
-                        min();
-                      }),
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 10),
-                      decoration: BoxDecoration(
-                        //border: Border.all()
-                      ),
-                      child: Text(
-                        drink.amount.toString(),
-                        style: TextStyle(fontSize: fontsize)),
-                    ),
-                    TextButton(
-                      child: Icon(Icons.add),
-                      onPressed: () {
-                        plus();
-                      },
-                      
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  TextButton(
+                    child: Icon(Icons.remove),
+                    onPressed: () {
+                      min();
+                    },
+                    style: TextButton.styleFrom(
+                      //backgroundColor: Colors.tealAccent,
+                      padding: EdgeInsets.all(0),
                     )
-                  ],
-                ),
+                  ),
+                  
+                  Container(
+                    //color: Colors.teal,
+                    padding: EdgeInsets.symmetric(horizontal: 0),
+                    child: Text(
+                      drink.amount.toString(),
+                      style: TextStyle(fontSize: fontsize)),
+                  ),
+                  
+                  TextButton(
+                    child: Icon(Icons.add),
+                    onPressed: () {
+                      plus();
+                    },
+                    style: TextButton.styleFrom(
+                      //backgroundColor: Colors.tealAccent,
+                      padding: EdgeInsets.all(0),
+                    )
+                  )
+                ],
               ),
             ),
 //            Flexible(

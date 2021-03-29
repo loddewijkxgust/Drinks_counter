@@ -15,6 +15,7 @@ void main() async {
   
   Hive.registerAdapter(BarAdapter());
   Hive.registerAdapter(DrinkAdapter());
+ // Hive.registerAdapter(UniqueKey());
 
   await Hive.openBox<Bar>('bars');
   await Hive.openBox<dynamic>('Values');
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.blue,
         scaffoldBackgroundColor: Colors.white,
+        backgroundColor: Colors.white
       ),
       home: Home()
     );
