@@ -1,7 +1,7 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="com.gust.drinkscounter"
-4    android:versionCode="3"
+4    android:versionCode="4"
 5    android:versionName="1.0.0" >
 6
 7    <uses-sdk
@@ -68,8 +68,8 @@
 40        android:name="androidx.multidex.MultiDexApplication"
 41        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 41-->[androidx.core:core:1.2.0] C:\Users\Gustl\.gradle\caches\transforms-2\files-2.1\544eab86e7823cb4f6f6bbcd34094c52\core-1.2.0\AndroidManifest.xml:24:18-86
-42        android:icon="@mipmap/ic_launcher"
-42-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:6:9-43
+42        android:icon="@mipmap/launcher_icon"
+42-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:6:9-45
 43        android:label="drinkscounter"
 43-->C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:5:9-38
 44        android:largeHeap="true"

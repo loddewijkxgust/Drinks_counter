@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.gust.drinkscounter"
-    android:versionCode="3"
+    android:versionCode="4"
     android:versionName="1.0.0" >
 
     <uses-sdk
@@ -39,7 +39,7 @@
     <application
         android:name="androidx.multidex.MultiDexApplication"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/launcher_icon"
         android:label="drinkscounter"
         android:largeHeap="true"
         android:theme="@style/Theme.AppCompat.NoActionBar" >

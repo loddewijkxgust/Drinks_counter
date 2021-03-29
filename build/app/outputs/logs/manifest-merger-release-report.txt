@@ -137,7 +137,7 @@ MERGED from [com.google.android.gms:play-services-ads-base:19.7.0] C:\Users\Gust
 	android:largeHeap
 		ADDED from [:flutter_barcode_scanner] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\flutter_barcode_scanner\intermediates\library_manifest\release\AndroidManifest.xml:16:9-33
 	android:icon
-		ADDED from C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:6:9-43
+		ADDED from C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\android\app\src\main\AndroidManifest.xml:6:9-45
 	android:theme
 		ADDED from [:flutter_barcode_scanner] C:\Users\Gustl\Desktop\Code\Apps\Flutter\drinks_counter3\drinks_counter\build\flutter_barcode_scanner\intermediates\library_manifest\release\AndroidManifest.xml:17:9-59
 activity#com.gust.drinkscounter.MainActivity
