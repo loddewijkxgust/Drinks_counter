@@ -14,6 +14,7 @@ class PopupMenu extends StatelessWidget {
     Bar bar = bars.get(vals.get('last')) ?? Bar.empty();
     return PopupMenuButton(
       itemBuilder: (context) => <PopupMenuEntry>[
+
         CustomPopupMenuItem(
           icon: Icons.edit,
           text: Text('Edit name'),
@@ -24,6 +25,7 @@ class PopupMenu extends StatelessWidget {
             );
           },
         ),
+
         CustomPopupMenuItem(
           icon: Icons.delete,
           text: Text('Delete bar'),
@@ -32,6 +34,7 @@ class PopupMenu extends StatelessWidget {
             bar.save();
           },
         ),
+
         CustomPopupMenuItem(
           icon: Icons.clear,
           text: Text('Reset amount'),
@@ -40,6 +43,7 @@ class PopupMenu extends StatelessWidget {
             bar.save();
           },
         ),
+
         CustomPopupMenuItem(
           icon: Icons.save,
           text: Text('Save'),
@@ -54,6 +58,7 @@ class PopupMenu extends StatelessWidget {
             });
           },
         ),
+        
         CustomPopupMenuItem(
           icon: Icons.history,
           text: Text('History'),

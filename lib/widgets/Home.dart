@@ -17,6 +17,7 @@ import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:package_info/package_info.dart';
 
+
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -71,26 +72,35 @@ class _HomeState extends State<Home> {
     bars.values.forEach((element) {
       print(element);
     });
+
     return AnimatedBuilder(
         animation: Listenable.merge([vals.listenable(), bars.listenable()]),
         builder: (context, widget) {
+
           bar = bars.get(vals.get('last')) ?? Bar.empty();
 
           return Scaffold(
+
             bottomSheet: Container(
               width: double.infinity,
               height: _ad.size.height.toDouble(),
               alignment: Alignment.center,
               child: AdWidget(ad: _ad),
             ),
+
             backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+
+
             appBar: AppBar(
-              backgroundColor:
-                  _isAdLoaded ? Theme.of(context).primaryColor : Colors.teal,
+              backgroundColor:_isAdLoaded ? Theme.of(context).primaryColor : Colors.teal,
               title: Text('${bar.name}'),
               centerTitle: true,
-              actions: [PopupMenu()],
+              actions: [
+                PopupMenu()
+              ],
             ),
+
+
             body: Padding(
               padding: EdgeInsets.only(bottom: 0),
               child: (bars.isNotEmpty
@@ -102,12 +112,7 @@ class _HomeState extends State<Home> {
                           children: [
                             ListTile(
                               title: Center(
-                                child: Text(bar.menu
-                                    .fold(
-                                        0,
-                                        (num? value, Drink drink) =>
-                                            value! + drink.amount * drink.price)
-                                    .toStringAsFixed(2)),
+                                child: Text(bar.menu.fold(0, (num? value, Drink drink) => value! + drink.amount * drink.price).toStringAsFixed(2)),
                               ),
                               tileColor: Colors.teal,
                             ),
@@ -118,14 +123,9 @@ class _HomeState extends State<Home> {
                                 itemBuilder: (BuildContext context, int index) {
                                   if (index >= bar.menu.length) {
                                     return Container(
-                                      color: kReleaseMode
-                                          ? Theme.of(context).backgroundColor
-                                          : Colors.white, //tealAccent,
+                                      color: kReleaseMode ? Theme.of(context).backgroundColor : Colors.white, //tealAccent,
                                       key: UniqueKey(),
-                                      height: _ad.size.height.toDouble() +
-                                          10 +
-                                          56 +
-                                          14, // Ad + space between + speed dial height + extra
+                                      height: _ad.size.height.toDouble() + 10 + 56 + 14, // Ad + space between + speed dial height + extra
                                     );
                                   }
 
@@ -212,13 +212,18 @@ class _HomeState extends State<Home> {
                       ),
                     )),
             ),
+
+
             drawer: BarDrawer(),
+
+
             floatingActionButton: SpeedDial(
               marginBottom: _isAdLoaded ? _ad.size.height.toDouble() + 10 : 16,
               overlayOpacity: 0.4,
               icon: Icons.menu,
               backgroundColor: Theme.of(context).primaryColor,
               children: [
+                
                 SpeedDialChild(
                   child: Icon(Icons.add),
                   label: 'Add drink',
@@ -247,7 +252,8 @@ class _HomeState extends State<Home> {
                     onTap: () async {
                       await showDialog(
                           context: context,
-                          builder: (context) => QRGenerator());
+                          builder: (context) => QRGenerator(),
+                          );
                       setState(() {});
                     }),
 
@@ -256,21 +262,9 @@ class _HomeState extends State<Home> {
                   child: Icon(Icons.local_drink),
                   onTap: () {
                     setState(() {
-                      bar.addDrink(new Drink(
-                          name: 'Duvel',
-                          price: 2.7,
-                          amount: 3,
-                          key: UniqueKey()));
-                      bar.addDrink(new Drink(
-                          name: 'Stella',
-                          price: 1.7,
-                          amount: 8,
-                          key: UniqueKey()));
-                      bar.addDrink(new Drink(
-                          name: 'Cara',
-                          price: 0.2,
-                          amount: 283,
-                          key: UniqueKey()));
+                      bar.addDrink(new Drink(name: 'Duvel', price: 2.7, amount: 3, key: UniqueKey()));
+                      bar.addDrink(new Drink(name: 'Stella', price: 1.7, amount: 8, key: UniqueKey()));
+                      bar.addDrink(new Drink(name: 'Cara', price: 0.2, amount: 283, key: UniqueKey()));
                       bar.save();
                     });
                   },
@@ -304,11 +298,4 @@ class _HomeState extends State<Home> {
           );
         });
   }
-
-//  @override
-//  void dispose() {
-//    bars.close();
-//    vals.close();
-//    super.dispose();
-//  }
 }
