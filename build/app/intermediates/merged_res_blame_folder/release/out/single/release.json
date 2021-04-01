@@ -1,9 +1,5 @@
 [
     {
-        "merged": "C:\\Users\\Gustl\\Desktop\\Code\\Apps\\Flutter\\drinks_counter3\\drinks_counter\\build\\app\\intermediates\\res\\merged\\release\\mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\Gustl\\Desktop\\Code\\Apps\\Flutter\\drinks_counter3\\drinks_counter\\android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
-    },
-    {
         "merged": "C:\\Users\\Gustl\\Desktop\\Code\\Apps\\Flutter\\drinks_counter3\\drinks_counter\\build\\app\\intermediates\\res\\merged\\release\\mipmap-xhdpi_launcher_icon.png.flat",
         "source": "C:\\Users\\Gustl\\Desktop\\Code\\Apps\\Flutter\\drinks_counter3\\drinks_counter\\android\\app\\src\\main\\res\\mipmap-xhdpi\\launcher_icon.png"
     },
@@ -16,20 +12,8 @@
         "source": "C:\\Users\\Gustl\\Desktop\\Code\\Apps\\Flutter\\drinks_counter3\\drinks_counter\\android\\app\\src\\main\\res\\mipmap-mdpi\\launcher_icon.png"
     },
     {
-        "merged": "C:\\Users\\Gustl\\Desktop\\Code\\Apps\\Flutter\\drinks_counter3\\drinks_counter\\build\\app\\intermediates\\res\\merged\\release\\mipmap-mdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\Gustl\\Desktop\\Code\\Apps\\Flutter\\drinks_counter3\\drinks_counter\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
-    },
-    {
         "merged": "C:\\Users\\Gustl\\Desktop\\Code\\Apps\\Flutter\\drinks_counter3\\drinks_counter\\build\\app\\intermediates\\res\\merged\\release\\drawable-v21_launch_background.xml.flat",
         "source": "C:\\Users\\Gustl\\Desktop\\Code\\Apps\\Flutter\\drinks_counter3\\drinks_counter\\android\\app\\src\\main\\res\\drawable-v21\\launch_background.xml"
-    },
-    {
-        "merged": "C:\\Users\\Gustl\\Desktop\\Code\\Apps\\Flutter\\drinks_counter3\\drinks_counter\\build\\app\\intermediates\\res\\merged\\release\\mipmap-hdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\Gustl\\Desktop\\Code\\Apps\\Flutter\\drinks_counter3\\drinks_counter\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
-    },
-    {
-        "merged": "C:\\Users\\Gustl\\Desktop\\Code\\Apps\\Flutter\\drinks_counter3\\drinks_counter\\build\\app\\intermediates\\res\\merged\\release\\mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\Gustl\\Desktop\\Code\\Apps\\Flutter\\drinks_counter3\\drinks_counter\\android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     },
     {
         "merged": "C:\\Users\\Gustl\\Desktop\\Code\\Apps\\Flutter\\drinks_counter3\\drinks_counter\\build\\app\\intermediates\\res\\merged\\release\\mipmap-xxhdpi_launcher_icon.png.flat",
@@ -42,9 +26,5 @@
     {
         "merged": "C:\\Users\\Gustl\\Desktop\\Code\\Apps\\Flutter\\drinks_counter3\\drinks_counter\\build\\app\\intermediates\\res\\merged\\release\\mipmap-hdpi_launcher_icon.png.flat",
         "source": "C:\\Users\\Gustl\\Desktop\\Code\\Apps\\Flutter\\drinks_counter3\\drinks_counter\\android\\app\\src\\main\\res\\mipmap-hdpi\\launcher_icon.png"
-    },
-    {
-        "merged": "C:\\Users\\Gustl\\Desktop\\Code\\Apps\\Flutter\\drinks_counter3\\drinks_counter\\build\\app\\intermediates\\res\\merged\\release\\mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\Gustl\\Desktop\\Code\\Apps\\Flutter\\drinks_counter3\\drinks_counter\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     }
 ]

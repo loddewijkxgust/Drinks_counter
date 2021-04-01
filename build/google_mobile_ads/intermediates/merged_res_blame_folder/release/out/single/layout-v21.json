@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "C:\\Users\\Gustl\\Desktop\\Code\\Apps\\Flutter\\drinks_counter3\\drinks_counter\\build\\google_mobile_ads\\intermediates\\res\\merged\\release\\layout-v21\\notification_template_custom_big.xml",
+        "source": "C:\\Users\\Gustl\\.gradle\\caches\\transforms-2\\files-2.1\\544eab86e7823cb4f6f6bbcd34094c52\\core-1.2.0\\res\\layout-v21\\notification_template_custom_big.xml"
+    },
+    {
+        "merged": "C:\\Users\\Gustl\\Desktop\\Code\\Apps\\Flutter\\drinks_counter3\\drinks_counter\\build\\google_mobile_ads\\intermediates\\res\\merged\\release\\layout-v21\\notification_action.xml",
+        "source": "C:\\Users\\Gustl\\.gradle\\caches\\transforms-2\\files-2.1\\544eab86e7823cb4f6f6bbcd34094c52\\core-1.2.0\\res\\layout-v21\\notification_action.xml"
+    },
+    {
+        "merged": "C:\\Users\\Gustl\\Desktop\\Code\\Apps\\Flutter\\drinks_counter3\\drinks_counter\\build\\google_mobile_ads\\intermediates\\res\\merged\\release\\layout-v21\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\Gustl\\.gradle\\caches\\transforms-2\\files-2.1\\544eab86e7823cb4f6f6bbcd34094c52\\core-1.2.0\\res\\layout-v21\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "C:\\Users\\Gustl\\Desktop\\Code\\Apps\\Flutter\\drinks_counter3\\drinks_counter\\build\\google_mobile_ads\\intermediates\\res\\merged\\release\\layout-v21\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\Gustl\\.gradle\\caches\\transforms-2\\files-2.1\\544eab86e7823cb4f6f6bbcd34094c52\\core-1.2.0\\res\\layout-v21\\notification_action_tombstone.xml"
+    }
+]
