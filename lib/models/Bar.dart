@@ -12,7 +12,7 @@ class Bar extends HiveObject {
   @HiveField(1)
   List<Drink> menu;
   @HiveField(2)
-  Map<DateTime, List<Drink>>? history = Map<DateTime, List<Drink>>();
+  Map<DateTime, List<Drink>> history = Map<DateTime, List<Drink>>();
 
   Bar({
     this.name = 'Empty',
@@ -25,17 +25,10 @@ class Bar extends HiveObject {
     this.name = 'Empty',
     this.menu = const [],
   }) {
-    print('gestart');
     string = encoded ? utf8.decode(lzma.decode(base64.decode(string))) : string;
-    print('*******************************');
     Map<String, dynamic> json = jsonDecode(string);
-    print('-------------------------------');
-
-    print(string);
     this.name = json['name'];
-    List<dynamic> _menu = json['menu'];
-
-    _menu.forEach((item) {
+    json['menu'].forEach((item) {
       this.addDrink(new Drink(
         name: item[0],
         price: double.parse(item[1].toString()),
@@ -44,22 +37,17 @@ class Bar extends HiveObject {
     });
   }
 
+  factory Bar.empty() => Bar(name: 'Empty');
+  factory Bar.fromHistory(List<Drink> _menu, String _name) => Bar(menu: _menu, name: _name);
+
+
   String toString({encoded = false}) {
-    String str = '{"name":"${this.name}","menu":[';
-    for (int i = 0; i < this.menu.length; i++) {
-      Drink drink = this.menu[i];
-      str += '["${drink.name}",${drink.price}]';
-      if (i < this.menu.length - 1) {
-        str += ',';
-      }
-    }
-    str += ']}';
+    String str = this.menu.fold('{"name":"${this.name}","menu":[', (String str, Drink drink) => str + '["${drink.name}",${drink.price}],').replaceAll(RegExp(r'.$'), "") + ']}';
     return encoded ? base64.encode(lzma.encode(utf8.encode(str))) : str;
   }
 
-  List<Drink> setMenu(List<Drink> _menu) {
+  void setMenu(List<Drink> _menu) {
     this.menu = _menu;
-    return this.menu;
   }
 
   List<Drink> addDrink(Drink _drink) {
@@ -99,24 +87,65 @@ class Bar extends HiveObject {
     this.menu = List.empty(growable: true);
   }
 
-  static Bar empty() {
-    return new Bar(name: 'Empty');
-  }
-
+  
   void setName(String _name) {
     this.name = _name;
   }
 
   void saveToHistory() {
-    history ??= Map<DateTime, List<Drink>>();
-    history?[DateTime.now()] = this.menu;
+    //history ??= Map<DateTime, List<Drink>>();
+    
+    history[DateTime.now()] = this.menu.where((Drink d) => d.amount > 0).toList();
   }
 
   void deleteHistory() {
-    this.history?.clear();
+    this.history.clear();
   }
 
   void removeFromHistroy(DateTime dt) {
-    this.history?.remove(int);
+    this.history.remove(int);
   }
+
+  factory Bar.impuls() {
+    return Bar(
+      name: 'Jeugdhuis Impuls',
+      menu: [
+        Drink(name: 'Stella', price: 1.5, key: UniqueKey()),
+        Drink(name: 'Duvel', price: 2, key: UniqueKey()),
+        Drink(name: 'Chouffe', price: 2, key: UniqueKey()),
+        Drink(name: 'Westmalle dubbel', price: 2.2, key: UniqueKey()),
+        Drink(name: 'Westmalle trippel', price: 2.2, key: UniqueKey()),
+        Drink(name: 'Omer', price: 2.0, key: UniqueKey()),
+        Drink(name: 'Ice Tea', price: 1.5, key: UniqueKey()),
+        Drink(name: 'Ice Tea pis', price: 1.5, key: UniqueKey()),
+        Drink(name: 'Water plat', price: 1.5, key: UniqueKey()),
+        Drink(name: 'Water bruis', price: 1.5, key: UniqueKey()),
+        Drink(name: 'Cola', price: 1.5, key: UniqueKey()),
+      ]
+    );
+  }
+
+  factory Bar.sport() => Bar(
+    name: 'Sportlokaal',
+    menu: [
+      // Todo
+    ]
+  );
 }
+
+
+/*
+    // String str = '{"name":"${this.name}","menu":[';
+    // for (Drink drink in this.menu) {
+    //   str += '["${drink.name}",${drink.price}]';
+    // }
+    for (int i = 0; i < this.menu.length; i++) {
+      Drink drink = this.menu[i];
+      str += '["${drink.name}",${drink.price}]';
+      if (i < this.menu.length - 1) {
+        str += ',';
+      }
+    }
+    str += ']}';
+    return encoded ? base64.encode(lzma.encode(utf8.encode(str))) : str;
+*/

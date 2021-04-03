@@ -50,9 +50,19 @@ class AddBarForm extends StatelessWidget {
                     _formKey.currentState!.save();
                     
                     if (this.isNew) {
-                      bar = new Bar(name: this.name);
+                      switch (this.name.toLowerCase()) {
+                        case '**impuls':
+                          bar = Bar.impuls();
+                          break;
+                        case '**sport':
+                          bar = Bar.sport();
+                          break;
+                        default:
+                          bar = new Bar(name: this.name);
+                      }
                       bars.add(bar);
                       vals.put('last', bars.keyAt(bars.length-1));
+                      bars.get(vals.get('last'))?.save();
                     } else {
                       bar.setName(this.name);
                       bar.save();

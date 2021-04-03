@@ -3,21 +3,22 @@ import 'package:drinkscounter/models/Drink.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class DrinkTile extends StatelessWidget {
+class DrinkTile extends StatefulWidget {
   final Drink drink;
   final Key key;
-  final Function min;
-  final Function plus;
-  final Function delete;
-  
+  final Function onPressed;
+
   DrinkTile({
     required this.drink,
     required this.key,
-    required this.min,
-    required this.plus,
-    required this.delete,
+    required this.onPressed,
   });
-  
+
+  @override
+  _DrinkTileState createState() => _DrinkTileState();
+}
+
+class _DrinkTileState extends State<DrinkTile> {
   @override
   Widget build(BuildContext context) {
     double fontsize = Settings.fontSize-5;
@@ -33,7 +34,7 @@ class DrinkTile extends StatelessWidget {
               fit: FlexFit.tight,
               flex: 4,
               child: Text(
-                drink.name,
+                widget.drink.name,
                 style: TextStyle(fontSize: fontsize),
                 maxLines: 2,
               )
@@ -42,7 +43,7 @@ class DrinkTile extends StatelessWidget {
             Flexible(
               fit: FlexFit.tight,
               flex: 2,
-              child: Text(drink.price.toStringAsFixed(2),
+              child: Text(widget.drink.price.toStringAsFixed(2),
                 style: TextStyle(fontSize: fontsize))),
             Flexible(
               fit: FlexFit.tight,
@@ -53,7 +54,8 @@ class DrinkTile extends StatelessWidget {
                   TextButton(
                     child: Icon(Icons.remove),
                     onPressed: () {
-                      min();
+                      widget.drink.min();
+                      widget.onPressed();
                     },
                     style: TextButton.styleFrom(
                       //backgroundColor: Colors.tealAccent,
@@ -65,14 +67,15 @@ class DrinkTile extends StatelessWidget {
                     //color: Colors.teal,
                     padding: EdgeInsets.symmetric(horizontal: 0),
                     child: Text(
-                      drink.amount.toString(),
+                      widget.drink.amount.toString(),
                       style: TextStyle(fontSize: fontsize)),
                   ),
                   
                   TextButton(
                     child: Icon(Icons.add),
                     onPressed: () {
-                      plus();
+                      widget.drink.plus();
+                      widget.onPressed();
                     },
                     style: TextButton.styleFrom(
                       //backgroundColor: Colors.tealAccent,

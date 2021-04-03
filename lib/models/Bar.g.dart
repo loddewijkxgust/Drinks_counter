@@ -19,7 +19,7 @@ class BarAdapter extends TypeAdapter<Bar> {
     return Bar(
       name: fields[0] as String,
       menu: (fields[1] as List).cast<Drink>(),
-    )..history = (fields[2] as Map?)?.map((dynamic k, dynamic v) =>
+    )..history = (fields[2] as Map).map((dynamic k, dynamic v) =>
         MapEntry(k as DateTime, (v as List).cast<Drink>()));
   }
 

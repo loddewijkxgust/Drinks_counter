@@ -1,10 +1,10 @@
+import 'package:drinkscounter/Settings.dart';
 import 'package:drinkscounter/models/Bar.dart';
-import 'package:drinkscounter/models/Drink.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 
 class History extends StatefulWidget {
-  Bar bar;
-  DateTime? current;
+  final Bar bar;
 
   History({required this.bar});
 
@@ -13,51 +13,49 @@ class History extends StatefulWidget {
 }
 
 class _HistoryState extends State<History> {
+  DateTime? current;
+  final Box vals = Hive.box<dynamic>('values');
+
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
-        if (widget.current != null) {
-          setState(() => widget.current = null);
-          return false;
-        }
-        return true;
-      },
-      child: Dialog(
-        child: widget.current != null
-            // Drinks
-            ? ListView.builder(
-                itemCount: widget.bar.history?[widget.current]?.length,
-                itemBuilder: (context, index) {
-                  Drink? drink = widget.bar.history?[widget.current]?[index];
-                  return Card(
-                    child: Text('${drink?.name} : ${drink?.amount}'),
-                  );
-                },
-              )
-            // Dates
-            : ListView.builder(
-                shrinkWrap: true,
-                itemCount: widget.bar.history?.length,
-                itemBuilder: (context, index) {
-                  DateTime? date = widget.bar.history?.keys.toList()[index];
-                  return ListTile(
-                    title: Text(date.toString()
-                        //'${date?.day}/${date?.month}/${date?.year}',
-                        ),
-                    onTap: () async {
+    return Dialog(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(
+              child: ListView.builder(
+            shrinkWrap: true,
+            itemCount: widget.bar.history.length,
+            itemBuilder: (context, index) {
+              Bar curBar = widget.bar;
+              DateTime? date = curBar.history.keys.toList()[index];
+              return ListTile(
+                title: Text(
+                  date.toString(),
+                  style: TextStyle(fontSize: Settings.fontSizeSmall),
+                ),
+                trailing: IconButton(
+                    icon: Icon(Icons.restore_rounded),
+                    iconSize: Settings.fontSize,
+                    color: Colors.black,
+                    onPressed: () async {
+
                       setState(() {
-                        widget.current = date;
+                        // widget.bar.setMenu(widget.bar.history[date]!);
+                        // widget.bar.save();
+                        vals.put('temp', Bar.fromHistory(curBar.history[date]!, '${curBar.name}: $date'));
+                        Navigator.of(context).pop();
                       });
-                    },
-                  );
-                }),
+                    }),
+              );
+            },
+          )),
+        ],
       ),
     );
   }

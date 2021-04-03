@@ -6,15 +6,19 @@ import 'package:drinkscounter/models/Bar.dart';
 import 'package:drinkscounter/Settings.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-class BarDrawer extends StatefulWidget {
-  @override
-  _BarDrawerState createState() => _BarDrawerState();
-}
 
-class _BarDrawerState extends State<BarDrawer> {
-  var bars = Hive.box<Bar>('bars');
-  var vals = Hive.box<dynamic>('values');
-  Bar bar = Bar.empty();
+// ignore: must_be_immutable
+class BarDrawer extends StatelessWidget {
+  Box<Bar> bars;
+  Box<dynamic> vals;
+  Bar bar;
+
+  BarDrawer({
+    Key? key,
+    required this.bars,
+    required this.vals,
+    required this.bar,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +47,6 @@ class _BarDrawerState extends State<BarDrawer> {
                   direction: (DismissDirection.horizontal),
                   key: ValueKey(curBar),
                   onDismissed: (direction) {
-                    setState(() {
                       bars.delete(curBar.key);
                       if (bar == curBar) {
                           try {
@@ -59,7 +62,6 @@ class _BarDrawerState extends State<BarDrawer> {
                           vals.put('last', bar.key);
                           //bar.save();
                       }
-                    });
                   },
                   confirmDismiss: (direction) async {
                     return await showDialog(
@@ -70,16 +72,12 @@ class _BarDrawerState extends State<BarDrawer> {
                           actions: [
                             TextButton(
                               onPressed: () {
-                                setState(() {
                                   return Navigator.of(context).pop(false);
-                                });
                               },
                               child: Text('Cancel')),
                             TextButton(
                               onPressed: () {
-                                setState(() {
                                   Navigator.of(context).pop(true);
-                                });
                               },
                               child: Text('Confirm')),
                           ],
@@ -105,12 +103,10 @@ class _BarDrawerState extends State<BarDrawer> {
                       ),
                     ),
                     onTap: () {
-                      setState(() {
                         print('Switching...');
                         print(bars.getAt(index)?.key);
                         vals.put('last', bars.getAt(index)?.key ?? bar.key);
                         Navigator.pop(context);
-                      });
                     },
                   ),
                 );
@@ -135,8 +131,7 @@ class _BarDrawerState extends State<BarDrawer> {
                           return AddBarForm(true);
                           },
                       );
-                      setState(() {
-                      });
+
                     },
                     child: Text('+ Add bar',
                       style: TextStyle(fontSize: Settings.fontSize)
@@ -155,24 +150,25 @@ class _BarDrawerState extends State<BarDrawer> {
                   flex: 10,
                   child: ElevatedButton(
                     onPressed: () async {
-                      var cameraStatus = await Permission.camera.status;
-                      if (!cameraStatus.isGranted) {
-                        Permission.camera.request();
-                      }
+                      int errorCode = 0;
+                      PermissionStatus cameraStatus = await Permission.camera.status;
+                      if (!cameraStatus.isGranted) Permission.camera.request();
 
                       try {
                         String qrString = await FlutterBarcodeScanner.scanBarcode('#ff0000', 'Cancel', true, ScanMode.QR);
-                        Bar bar = new Bar.fromString(string: qrString, encoded: true);
+                        errorCode++;// 1
+                        print(qrString);
+                        bar = new Bar.fromString(string: qrString, encoded: true);
+                        errorCode++;// 2
                         bars.add(bar);
+                        errorCode++;// 3
                         vals.put('last', bars.keyAt(bars.length-1));
-                        
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('${bar.name} added')));
+                        errorCode++;// 4
                       } catch (e) {
-                        print('Tried and Caught: Bardrawer:174: $e}');
+                        print('Tried and Caught: Bardrawer:174: ${e.toString()}\nError code: $errorCode');
                       }
-                      setState(() {});
+
                       Navigator.pop(context);
-                      
                     },
                     child: Icon(Icons.qr_code_rounded, size: Settings.fontSize),
                   ),

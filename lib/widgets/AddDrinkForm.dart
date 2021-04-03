@@ -25,11 +25,8 @@ class AddDrinkForm extends StatelessWidget {
           child: Column(children: <Widget>[
             TextFormField(
               validator: (value) {
-                if (value == null) {
-                  return 'Invalid input';
-                } else if (value.isEmpty) {
-                  return 'Please enter name';
-                }
+                if (value == null) return 'Invalid input';
+                if (value.isEmpty) return 'Please enter name';
                 return null;
               },
               decoration: InputDecoration(
@@ -42,13 +39,10 @@ class AddDrinkForm extends StatelessWidget {
             
             TextFormField(
               validator: (value) {
-                if (value == null ) {
-                  return 'Invalid input';
-                } else if (value.isEmpty) {
-                  return 'Please enter price';
-                }
+                if (value == null ) return 'Invalid input';
+                if (value.isEmpty) return 'Please enter price';
                 try {
-                  double.parse(value);
+                  double.parse(value.replaceAll(',', '.'));
                   return null;
                 } catch (e) {
                   return 'Not a valid number';
@@ -62,7 +56,7 @@ class AddDrinkForm extends StatelessWidget {
                 FilteringTextInputFormatter.singleLineFormatter
               ],
               onSaved: (value) {
-                this.price = double.parse(value ?? '0');
+                this.price = double.parse(value?.replaceAll(',', '.') ?? '0');
               },
             ),
             Align(

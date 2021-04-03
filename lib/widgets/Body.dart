@@ -6,7 +6,6 @@ import 'package:drinkscounter/widgets/AddBarForm.dart';
 import 'package:drinkscounter/widgets/AddDrinkForm.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:hive/hive.dart';
 
 class Body extends StatelessWidget {
@@ -53,19 +52,19 @@ class Body extends StatelessWidget {
                             return Container(
                               color: kReleaseMode ? Theme.of(context).backgroundColor : Colors.white, //tealAccent,
                               key: UniqueKey(),
-                              height: 50 + 10 + 56 + 14, // Ad + space between + speed dial height + extra
+                              height: 56 + 19,
                             );
                           }
 
                           Drink curDrink = bar.menu[index];
 
                           return Dismissible(
-
                             child: DrinkTile(
                               drink: curDrink,
                               key: curDrink.key,
                               onPressed: () => bar.save(),
                               ),
+                              direction: DismissDirection.startToEnd ,
 
                               key: curDrink.key,
                               onDismissed: (direction) {

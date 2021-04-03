@@ -1,13 +1,11 @@
 import 'dart:io';
-
-import 'package:drinkscounter/Settings.dart';
 import 'package:flutter/foundation.dart';
 
 class AdHelper {
   
   static String get bannerAdUnitId {
     if (Platform.isAndroid) {
-      return kReleaseMode ? 'ca-app-pub-2032072582529697/8735325207' : 'ca-app-pub-3940256099942544/6300978111';
+      return kReleaseMode ? 'ca-app-pub-2032072582529697/8735325207'/*'ca-app-pub-2032072582529697/3492764472'*/ : 'ca-app-pub-3940256099942544/6300978111';
     } else if (Platform.isIOS) {
       return kReleaseMode ? 'ca-app-pub-2032072582529697/3970055437' : 'ca-app-pub-3940256099942544/2934735716';
     }

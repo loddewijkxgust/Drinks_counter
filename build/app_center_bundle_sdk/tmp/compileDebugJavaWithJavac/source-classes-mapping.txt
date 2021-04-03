@@ -1,0 +1,2 @@
+it/sarni/app_center_bundle_sdk/BuildConfig.java
+ it.sarni.app_center_bundle_sdk.BuildConfig
