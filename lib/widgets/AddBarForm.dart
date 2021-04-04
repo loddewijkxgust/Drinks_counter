@@ -59,6 +59,7 @@ class AddBarForm extends StatelessWidget {
                           break;
                         default:
                           bar = new Bar(name: this.name);
+                          
                       }
                       bars.add(bar);
                       vals.put('last', bars.keyAt(bars.length-1));

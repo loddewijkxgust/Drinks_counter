@@ -1,4 +1,4 @@
-import 'package:drinkscounter/Settings.dart';
+import 'package:drinkscounter/Values.dart';
 import 'package:drinkscounter/models/Bar.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
@@ -37,11 +37,11 @@ class _HistoryState extends State<History> {
               return ListTile(
                 title: Text(
                   date.toString(),
-                  style: TextStyle(fontSize: Settings.fontSizeSmall),
+                  style: TextStyle(fontSize: Values.fontSizeSmall),
                 ),
                 trailing: IconButton(
                     icon: Icon(Icons.restore_rounded),
-                    iconSize: Settings.fontSize,
+                    iconSize: Values.fontSize,
                     color: Colors.black,
                     onPressed: () async {
 

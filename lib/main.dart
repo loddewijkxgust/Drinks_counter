@@ -2,6 +2,7 @@ import 'package:drinkscounter/ad_helper.dart';
 import 'package:drinkscounter/models/Bar.dart';
 import 'package:drinkscounter/models/Drink.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -12,15 +13,16 @@ import 'package:flutter/services.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await MobileAds.instance.initialize();
-  await Hive.initFlutter();
 
+  await Hive.initFlutter();
   Hive.registerAdapter(BarAdapter());
   Hive.registerAdapter(DrinkAdapter());
-
   await Hive.openBox<Bar>('bars');
   await Hive.openBox<dynamic>('Values');
+
   print('box opened');
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Color(0xff009688)));
 
   runApp(MyApp());
 }
@@ -69,12 +71,30 @@ class _MyAppState extends State<MyApp> {
           child: MaterialApp(
             title: 'Flutter Demo',
             theme: ThemeData(
-                primaryColor: Colors.blue,
-                scaffoldBackgroundColor: Colors.white,
-                backgroundColor: Colors.white),
+              primaryColor: Color(0xff009688),
+              accentColor: Color(0xffFFC107),
+              primaryColorDark: Color(0xff00796B),
+              
+              colorScheme: ColorScheme.highContrastLight(
+                primary: Color(0xffFFC107)
+              ),
+              
+              fontFamily: GoogleFonts.ubuntu().fontFamily
+            ),
+            darkTheme: ThemeData.dark().copyWith(
+              primaryColor: Color(0xff009688),
+              accentColor: Color(0xffFFC107),
+              primaryColorDark: Color(0xff00796B),
+              
+              colorScheme: ColorScheme.highContrastLight(
+                primary: Color(0xffFFC107)
+              ),
+            ),
+
+            themeMode: ThemeMode.light,
+
             routes: {
               '/': (context) => Home(),
-              //'/history': (context) => HistoryWidget(),
             },
           ),
         ),

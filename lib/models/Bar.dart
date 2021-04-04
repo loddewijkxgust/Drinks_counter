@@ -37,9 +37,8 @@ class Bar extends HiveObject {
     });
   }
 
-  factory Bar.empty() => Bar(name: 'Empty');
+  factory Bar.empty() => Bar(name: '');
   factory Bar.fromHistory(List<Drink> _menu, String _name) => Bar(menu: _menu, name: _name);
-
 
   String toString({encoded = false}) {
     String str = this.menu.fold('{"name":"${this.name}","menu":[', (String str, Drink drink) => str + '["${drink.name}",${drink.price}],').replaceAll(RegExp(r'.$'), "") + ']}';
@@ -87,14 +86,13 @@ class Bar extends HiveObject {
     this.menu = List.empty(growable: true);
   }
 
-  
   void setName(String _name) {
     this.name = _name;
   }
 
   void saveToHistory() {
     //history ??= Map<DateTime, List<Drink>>();
-    
+
     history[DateTime.now()] = this.menu.where((Drink d) => d.amount > 0).toList();
   }
 
@@ -107,32 +105,28 @@ class Bar extends HiveObject {
   }
 
   factory Bar.impuls() {
-    return Bar(
-      name: 'Jeugdhuis Impuls',
-      menu: [
-        Drink(name: 'Stella', price: 1.5, key: UniqueKey()),
-        Drink(name: 'Duvel', price: 2, key: UniqueKey()),
-        Drink(name: 'Chouffe', price: 2, key: UniqueKey()),
-        Drink(name: 'Westmalle dubbel', price: 2.2, key: UniqueKey()),
-        Drink(name: 'Westmalle trippel', price: 2.2, key: UniqueKey()),
-        Drink(name: 'Omer', price: 2.0, key: UniqueKey()),
-        Drink(name: 'Ice Tea', price: 1.5, key: UniqueKey()),
-        Drink(name: 'Ice Tea pis', price: 1.5, key: UniqueKey()),
-        Drink(name: 'Water plat', price: 1.5, key: UniqueKey()),
-        Drink(name: 'Water bruis', price: 1.5, key: UniqueKey()),
-        Drink(name: 'Cola', price: 1.5, key: UniqueKey()),
-      ]
-    );
+    return Bar(name: 'Jeugdhuis Impuls', menu: [
+      Drink(name: 'Stella', price: 1.5, key: UniqueKey()),
+      Drink(name: 'Duvel', price: 2, key: UniqueKey()),
+      Drink(name: 'Chouffe', price: 2, key: UniqueKey()),
+      Drink(name: 'Westmalle dubbel', price: 2.2, key: UniqueKey()),
+      Drink(name: 'Westmalle trippel', price: 2.2, key: UniqueKey()),
+      Drink(name: 'Omer', price: 2.0, key: UniqueKey()),
+      Drink(name: 'Ice Tea', price: 1.5, key: UniqueKey()),
+      Drink(name: 'Ice Tea pis', price: 1.5, key: UniqueKey()),
+      Drink(name: 'Water plat', price: 1.5, key: UniqueKey()),
+      Drink(name: 'Water bruis', price: 1.5, key: UniqueKey()),
+      Drink(name: 'Cola', price: 1.5, key: UniqueKey()),
+    ]);
   }
 
-  factory Bar.sport() => Bar(
-    name: 'Sportlokaal',
-    menu: [
-      // Todo
-    ]
-  );
+  factory Bar.sport() => Bar(name: 'Sportlokaal', menu: [
+        Drink(name: 'Stella', price: 1.7, key: UniqueKey()),
+        Drink(name: 'Duvel', price: 2.7, key: UniqueKey()),
+        Drink(name: 'Chouffe', price: 3, key: UniqueKey()),
+        Drink(name: 'Westmalle trippel', price: 3, key: UniqueKey()),
+      ]);
 }
-
 
 /*
     // String str = '{"name":"${this.name}","menu":[';

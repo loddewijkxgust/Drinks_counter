@@ -1,10 +1,11 @@
-import 'package:drinkscounter/Settings.dart';
+import 'dart:ui';
+
+import 'package:drinkscounter/Values.dart';
 import 'package:drinkscounter/models/Bar.dart';
 import 'package:drinkscounter/models/Drink.dart';
 import 'package:drinkscounter/widgets/AddDrinkForm.dart';
 import 'package:drinkscounter/widgets/BarDrawer.dart';
 import 'package:drinkscounter/widgets/QRGenerator.dart';
-import 'package:drinkscounter/widgets/PopupMenu.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -47,32 +48,58 @@ class _HomeState extends State<Home> {
 
           return Scaffold(
 
-            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
 
-            appBar: AppBar(
-              title: Text('${bar.name}'),
-              centerTitle: true,
-              actions: [
-                PopupMenu(bars: bars, bar: bar, vals: vals),
-                ],
-            ),
+            // appBar: AppBar(
+            //   title: Text(
+            //     '${bar.name}', 
+            //     style: TextStyle(
+            //       color: Colors.black,
+            //       fontSize: Settings.fontSizeMSmall
+            //       )),
+            //   centerTitle: true,
 
-            body: Body(bars: bars, bar: bar),
+            //   bottom: PreferredSize(
+            //     preferredSize: Size.fromHeight(40),
+            //     child: Container(
+            //       padding: EdgeInsets.only(bottom: 10),
+            //       width: double.infinity,
+            //       child: Text(
+            //         bar.menu.fold(0, (num? value, Drink drink) => value! + drink.amount * drink.price).toStringAsFixed(2),
+            //         style: TextStyle(fontSize: Settings.fontSizeMSmall),
+            //       ),
+            //       color: Colors.white,
+            //       alignment: Alignment.bottomCenter,
+            //       ),
+            //     ),
+
+            //   backgroundColor: Colors.white,
+            //   iconTheme: IconThemeData(color: Colors.black),
+            //   elevation: 0,
+            //   actions: [
+            //     PopupMenu(bars: bars, bar: bar, vals: vals),
+            //     ],
+            // ),
+
+            //backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+
+            body: Body(bars: bars, bar: bar, vals: vals),
 
             drawer: BarDrawer(bars: bars, bar: bar, vals: vals) ,
 
             floatingActionButton: SpeedDial(
               overlayOpacity: 0.4,
               icon: Icons.menu,
-              backgroundColor: Theme.of(context).primaryColor,
+              backgroundColor: Theme.of(context).accentColor,
+              //backgroundColor: Theme.of(context).primaryColor,
               children: [
                 SpeedDialChild(
+                  backgroundColor: Theme.of(context).primaryColor,
                   child: Icon(Icons.add),
-                  label: 'Add drink',
-                  labelBackgroundColor: Colors.white,
-                  labelStyle: TextStyle(
-                    fontSize: Settings.fontSizeSmall,
-                  ),
+                  labelWidget: Text(
+                    'Add bar',
+                    style: TextStyle(
+                      fontSize: Values.fontSizeSmall,
+                      )),
                   onTap: () async {
                     await showDialog(
                       context: context,
@@ -80,17 +107,15 @@ class _HomeState extends State<Home> {
                     );
                     setState(() {});
                   },
-                  backgroundColor: Theme.of(context).primaryColor,
+                  //backgroundColor: Theme.of(context).colorScheme.primary,
                 ),
 
                 SpeedDialChild(
+                  backgroundColor: Theme.of(context).primaryColor,
                     child: Icon(Icons.qr_code_rounded),
-                    label: 'Share bar',
-                    labelBackgroundColor: Colors.white,
-                    labelStyle: TextStyle(
-                      fontSize: Settings.fontSizeSmall,
-                    ),
-                    backgroundColor: Theme.of(context).primaryColor,
+                    labelWidget: Text('Share bar', style: TextStyle(
+                      fontSize: Values.fontSizeSmall,
+                      )),
                     onTap: () async {
                       await showDialog(
                         context: context,

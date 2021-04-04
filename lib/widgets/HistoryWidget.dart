@@ -1,4 +1,4 @@
-import 'package:drinkscounter/Settings.dart';
+import 'package:drinkscounter/Values.dart';
 import 'package:drinkscounter/models/Bar.dart';
 import 'package:drinkscounter/models/Drink.dart';
 import 'package:flutter/material.dart';
@@ -42,7 +42,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                     return ListTile(
                       title: Text(
                         date.toString(),
-                        style: TextStyle(fontSize: Settings.fontSizeSmall),
+                        style: TextStyle(fontSize: Values.fontSizeSmall),
                       ),
                       onTap: () {
                         Navigator.push(
@@ -73,7 +73,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                     return ListTile(
                       title: Text(
                         '${drink.name}: ${drink.amount}',
-                        style: TextStyle(fontSize: Settings.fontSizeSmall),
+                        style: TextStyle(fontSize: Values.fontSizeSmall),
                       ),
                     );
 

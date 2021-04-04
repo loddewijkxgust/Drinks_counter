@@ -1,4 +1,4 @@
-import 'package:drinkscounter/Settings.dart';
+import 'package:drinkscounter/Values.dart';
 import 'package:drinkscounter/models/Drink.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -21,8 +21,9 @@ class DrinkTile extends StatefulWidget {
 class _DrinkTileState extends State<DrinkTile> {
   @override
   Widget build(BuildContext context) {
-    double fontsize = Settings.fontSize-5;
+    double fontsize = Values.fontSize-5;
     return Card(
+      elevation: 0,
       //margin: EdgeInsets.symmetric(horizontal: 0, vertical: 15),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),

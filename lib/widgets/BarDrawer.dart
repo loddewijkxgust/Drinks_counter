@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:hive/hive.dart';
 import 'package:drinkscounter/models/Bar.dart';
-import 'package:drinkscounter/Settings.dart';
+import 'package:drinkscounter/Values.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 
@@ -31,10 +31,10 @@ class BarDrawer extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           DrawerHeader(
-            child:
-            Text('Bars', style: TextStyle(fontSize: Settings.fontSize)),
+            child: Text('Bars', style: TextStyle(fontSize: Values.fontSize)),
             decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor
+              color: Theme.of(context).primaryColor,
+              
             ),
           ),
           Expanded(
@@ -71,10 +71,9 @@ class BarDrawer extends StatelessWidget {
                           title: Text('Delete ${curBar.name}?'),
                           actions: [
                             TextButton(
-                              onPressed: () {
-                                  return Navigator.of(context).pop(false);
-                              },
-                              child: Text('Cancel')),
+                              onPressed: () => Navigator.of(context).pop(false),
+                              child: Text('Cancel'),
+                            ),
                             TextButton(
                               onPressed: () {
                                   Navigator.of(context).pop(true);
@@ -88,8 +87,7 @@ class BarDrawer extends StatelessWidget {
                     color: Colors.redAccent,
                   ),
                   child: ListTile(
-                    tileColor:
-                    curBar == bar ? Colors.black12 : Colors.white,
+                    tileColor: (curBar != bar) ? Colors.white : Theme.of(context).accentColor,
                     title: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Align(
@@ -98,7 +96,7 @@ class BarDrawer extends StatelessWidget {
                           bars.values.elementAt(index).name,
                           softWrap: false,
                           style: TextStyle(
-                            fontSize: Settings.fontSize,
+                            fontSize: Values.fontSize,
                             color: Colors.black)),
                       ),
                     ),
@@ -134,7 +132,7 @@ class BarDrawer extends StatelessWidget {
 
                     },
                     child: Text('+ Add bar',
-                      style: TextStyle(fontSize: Settings.fontSize)
+                      style: TextStyle(fontSize: Values.fontSize)
                     ),
                   ),
                 ),
@@ -170,7 +168,7 @@ class BarDrawer extends StatelessWidget {
 
                       Navigator.pop(context);
                     },
-                    child: Icon(Icons.qr_code_rounded, size: Settings.fontSize),
+                    child: Icon(Icons.qr_code_rounded, size: Values.fontSize),
                   ),
                 ),
               ],
