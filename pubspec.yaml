@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.0+11
+version: 1.0.0+12
 
 environment:
     sdk: '>=2.12.0 <3.0.0'
@@ -37,6 +37,11 @@ dependencies:
     cupertino_icons: ^1.0.2
     reorderables: ^0.4.0
     google_fonts: ^2.0.0
+    flutter_material_color_picker:
+      git:
+        url: https://github.com/Bwolfs2/flutter_material_color_picker.git
+    auto_size_text: ^3.0.0-nullsafety.0
+
     
 
 dev_dependencies:

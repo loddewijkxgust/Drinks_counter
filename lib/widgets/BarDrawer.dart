@@ -33,7 +33,7 @@ class BarDrawer extends StatelessWidget {
           DrawerHeader(
             child: Text('Bars', style: TextStyle(fontSize: Values.fontSize)),
             decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor,
+              color: Color(bar.color),//Theme.of(context).primaryColor,
               
             ),
           ),
@@ -87,7 +87,11 @@ class BarDrawer extends StatelessWidget {
                     color: Colors.redAccent,
                   ),
                   child: ListTile(
-                    tileColor: (curBar != bar) ? Colors.white : Theme.of(context).accentColor,
+                    leading: CircleAvatar(
+                      backgroundColor: Color(curBar.color),
+                      maxRadius: 15,
+                      ),
+                    tileColor: (curBar != bar) ? Colors.white : Colors.black12,
                     title: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Align(
@@ -96,7 +100,7 @@ class BarDrawer extends StatelessWidget {
                           bars.values.elementAt(index).name,
                           softWrap: false,
                           style: TextStyle(
-                            fontSize: Values.fontSize,
+                            fontSize: Values.fontSizeMSmall,
                             color: Colors.black)),
                       ),
                     ),
@@ -104,7 +108,7 @@ class BarDrawer extends StatelessWidget {
                         print('Switching...');
                         print(bars.getAt(index)?.key);
                         vals.put('last', bars.getAt(index)?.key ?? bar.key);
-                        Navigator.pop(context);
+                        //Navigator.pop(context);
                     },
                   ),
                 );
@@ -125,9 +129,7 @@ class BarDrawer extends StatelessWidget {
                     onPressed: () async {
                       await showDialog(
                         context: context,
-                        builder: (BuildContext context) {
-                          return AddBarForm(true);
-                          },
+                        builder: (BuildContext context) => AddBarForm(bars: bars, bar: bar, vals: vals),
                       );
 
                     },

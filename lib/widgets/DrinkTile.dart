@@ -31,8 +31,8 @@ class _DrinkTileState extends State<DrinkTile> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Flexible(
-              fit: FlexFit.tight,
+            Expanded(
+              // fit: FlexFit.tight,
               flex: 4,
               child: Text(
                 widget.drink.name,
@@ -41,47 +41,53 @@ class _DrinkTileState extends State<DrinkTile> {
               )
             ),
 
-            Flexible(
-              fit: FlexFit.tight,
+            Expanded(
+              // fit: FlexFit.tight,
               flex: 2,
               child: Text(widget.drink.price.toStringAsFixed(2),
                 style: TextStyle(fontSize: fontsize))),
-            Flexible(
-              fit: FlexFit.tight,
+            Expanded(
+              // fit: FlexFit.tight,
               flex: 5,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  TextButton(
-                    child: Icon(Icons.remove),
-                    onPressed: () {
-                      widget.drink.min();
-                      widget.onPressed();
-                    },
-                    style: TextButton.styleFrom(
-                      //backgroundColor: Colors.tealAccent,
-                      padding: EdgeInsets.all(0),
-                    )
+                  Expanded(
+                    child: TextButton(
+                      child: Icon(Icons.remove),
+                      onPressed: () {
+                        widget.drink.min();
+                        widget.onPressed();
+                      },
+                      style: TextButton.styleFrom(
+                        //backgroundColor: Colors.tealAccent,
+                        padding: EdgeInsets.all(0),
+                      )
+                    ),
                   ),
                   
-                  Container(
-                    //color: Colors.teal,
-                    padding: EdgeInsets.symmetric(horizontal: 0),
-                    child: Text(
-                      widget.drink.amount.toString(),
-                      style: TextStyle(fontSize: fontsize)),
+                  Expanded(
+                    child: Container(
+                      //color: Colors.teal,
+                      padding: EdgeInsets.symmetric(horizontal: 0),
+                      child: Text(
+                        widget.drink.amount.toString(),
+                        style: TextStyle(fontSize: fontsize)),
+                    ),
                   ),
                   
-                  TextButton(
-                    child: Icon(Icons.add),
-                    onPressed: () {
-                      widget.drink.plus();
-                      widget.onPressed();
-                    },
-                    style: TextButton.styleFrom(
-                      //backgroundColor: Colors.tealAccent,
-                      padding: EdgeInsets.all(0),
-                    )
+                  Expanded(
+                    child: TextButton(
+                      child: Icon(Icons.add),
+                      onPressed: () {
+                        widget.drink.plus();
+                        widget.onPressed();
+                      },
+                      style: TextButton.styleFrom(
+                        //backgroundColor: Colors.tealAccent,
+                        padding: EdgeInsets.all(0),
+                      )
+                    ),
                   )
                 ],
               ),

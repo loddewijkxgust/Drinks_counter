@@ -19,6 +19,7 @@ class BarAdapter extends TypeAdapter<Bar> {
     return Bar(
       name: fields[0] as String,
       menu: (fields[1] as List).cast<Drink>(),
+      color: fields[3] as int,
     )..history = (fields[2] as Map).map((dynamic k, dynamic v) =>
         MapEntry(k as DateTime, (v as List).cast<Drink>()));
   }
@@ -26,13 +27,15 @@ class BarAdapter extends TypeAdapter<Bar> {
   @override
   void write(BinaryWriter writer, Bar obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(4)
       ..writeByte(0)
       ..write(obj.name)
       ..writeByte(1)
       ..write(obj.menu)
       ..writeByte(2)
-      ..write(obj.history);
+      ..write(obj.history)
+      ..writeByte(3)
+      ..write(obj.color);
   }
 
   @override

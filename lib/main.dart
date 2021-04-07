@@ -22,7 +22,8 @@ void main() async {
 
   print('box opened');
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Color(0xff009688)));
+  // ignore: dead_code
+  //SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Color(true ? 0xff00796B : 0xff009688)));
 
   runApp(MyApp());
 }

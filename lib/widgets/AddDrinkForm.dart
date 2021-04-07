@@ -24,6 +24,7 @@ class AddDrinkForm extends StatelessWidget {
           key: _formKey,
           child: Column(children: <Widget>[
             TextFormField(
+              maxLength: 16,
               validator: (value) {
                 if (value == null) return 'Invalid input';
                 if (value.isEmpty) return 'Please enter name';

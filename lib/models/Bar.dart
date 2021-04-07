@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:drinkscounter/models/Drink.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:lzma/lzma.dart';
 part 'Bar.g.dart';
@@ -13,10 +14,13 @@ class Bar extends HiveObject {
   List<Drink> menu;
   @HiveField(2)
   Map<DateTime, List<Drink>> history = Map<DateTime, List<Drink>>();
+  @HiveField(3)
+  int color;
 
   Bar({
     this.name = 'Empty',
     this.menu = const [],
+    this.color = 0xffff3a28, //0xff009688
   });
 
   Bar.fromString({
@@ -24,10 +28,12 @@ class Bar extends HiveObject {
     encoded = false,
     this.name = 'Empty',
     this.menu = const [],
+    this.color = 0,
   }) {
     string = encoded ? utf8.decode(lzma.decode(base64.decode(string))) : string;
     Map<String, dynamic> json = jsonDecode(string);
     this.name = json['name'];
+    this.color = int.parse(json['color'].toString());
     json['menu'].forEach((item) {
       this.addDrink(new Drink(
         name: item[0],
@@ -37,11 +43,12 @@ class Bar extends HiveObject {
     });
   }
 
-  factory Bar.empty() => Bar(name: '');
+  factory Bar.empty() => Bar(name: '', color: 0xFF009688);
+  factory Bar.firstBar() => Bar(name: 'My first bar', color: 0xFF48d4ff);
   factory Bar.fromHistory(List<Drink> _menu, String _name) => Bar(menu: _menu, name: _name);
 
   String toString({encoded = false}) {
-    String str = this.menu.fold('{"name":"${this.name}","menu":[', (String str, Drink drink) => str + '["${drink.name}",${drink.price}],').replaceAll(RegExp(r'.$'), "") + ']}';
+    String str = this.menu.fold('{"name":"${this.name}","color":"${this.color}","menu":[', (String str, Drink drink) => str + '["${drink.name}",${drink.price}],').replaceAll(RegExp(r'.$'), "") + ']}';
     return encoded ? base64.encode(lzma.encode(utf8.encode(str))) : str;
   }
 
@@ -90,6 +97,10 @@ class Bar extends HiveObject {
     this.name = _name;
   }
 
+  void setColor(int _color) {
+    this.color = _color;
+  }
+
   void saveToHistory() {
     //history ??= Map<DateTime, List<Drink>>();
 
@@ -112,6 +123,8 @@ class Bar extends HiveObject {
       Drink(name: 'Westmalle dubbel', price: 2.2, key: UniqueKey()),
       Drink(name: 'Westmalle trippel', price: 2.2, key: UniqueKey()),
       Drink(name: 'Omer', price: 2.0, key: UniqueKey()),
+      Drink(name: 'Fles wijn rood', price: 9.0, key: UniqueKey()),
+      Drink(name: 'Fles wijn wit', price: 9.0, key: UniqueKey()),
       Drink(name: 'Ice Tea', price: 1.5, key: UniqueKey()),
       Drink(name: 'Ice Tea pis', price: 1.5, key: UniqueKey()),
       Drink(name: 'Water plat', price: 1.5, key: UniqueKey()),

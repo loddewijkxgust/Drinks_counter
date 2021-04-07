@@ -9,6 +9,7 @@ import 'package:drinkscounter/widgets/QRGenerator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_material_color_picker/flutter_material_color_picker.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -31,8 +32,12 @@ class _HomeState extends State<Home> {
 
   @override
   void initState() {
+    print('***************************************************************************************************************');
+    print(vals.get('inited'));
     try {
-      bar = (bars.get(vals.get('last') ?? bars.keys.elementAt(0))!);
+
+      bar = vals.get('inited') == null ? Bar.firstBar() : (bars.get(vals.get('last') ?? bars.keys.elementAt(0))!);
+      vals.put('inited', 'true');
     } catch (e) {
       bar = Bar.empty();
     }
@@ -48,45 +53,23 @@ class _HomeState extends State<Home> {
 
           return Scaffold(
 
-
-            // appBar: AppBar(
-            //   title: Text(
-            //     '${bar.name}', 
-            //     style: TextStyle(
-            //       color: Colors.black,
-            //       fontSize: Settings.fontSizeMSmall
-            //       )),
-            //   centerTitle: true,
-
-            //   bottom: PreferredSize(
-            //     preferredSize: Size.fromHeight(40),
-            //     child: Container(
-            //       padding: EdgeInsets.only(bottom: 10),
-            //       width: double.infinity,
-            //       child: Text(
-            //         bar.menu.fold(0, (num? value, Drink drink) => value! + drink.amount * drink.price).toStringAsFixed(2),
-            //         style: TextStyle(fontSize: Settings.fontSizeMSmall),
-            //       ),
-            //       color: Colors.white,
-            //       alignment: Alignment.bottomCenter,
-            //       ),
-            //     ),
-
-            //   backgroundColor: Colors.white,
-            //   iconTheme: IconThemeData(color: Colors.black),
-            //   elevation: 0,
-            //   actions: [
-            //     PopupMenu(bars: bars, bar: bar, vals: vals),
-            //     ],
-            // ),
-
-            //backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-
             body: Body(bars: bars, bar: bar, vals: vals),
 
             drawer: BarDrawer(bars: bars, bar: bar, vals: vals) ,
 
-            floatingActionButton: SpeedDial(
+            floatingActionButton: 1 < 2 
+            ? FloatingActionButton(
+              child: Icon(Icons.add),
+              backgroundColor: Theme.of(context).accentColor,
+              onPressed: () async {
+                    await showDialog(
+                      context: context,
+                      builder: (BuildContext context) => AddDrinkForm(),
+                    );
+                    setState(() {});
+                  },
+            )
+            : SpeedDial(
               overlayOpacity: 0.4,
               icon: Icons.menu,
               backgroundColor: Theme.of(context).accentColor,
@@ -96,7 +79,7 @@ class _HomeState extends State<Home> {
                   backgroundColor: Theme.of(context).primaryColor,
                   child: Icon(Icons.add),
                   labelWidget: Text(
-                    'Add bar',
+                    'Add drink',
                     style: TextStyle(
                       fontSize: Values.fontSizeSmall,
                       )),
@@ -122,7 +105,8 @@ class _HomeState extends State<Home> {
                         builder: (context) => QRGenerator(),
                       );
                       setState(() {});
-                    }),
+                    }
+                ),
 
                 //if (!kReleaseMode)
                 SpeedDialChild(
@@ -178,7 +162,23 @@ class _HomeState extends State<Home> {
 
                 SpeedDialChild(
                     child: Icon(Icons.refresh),
-                    onTap: () => setState(() {})),
+                    onTap: () => setState(() {}),
+                    ),
+
+                SpeedDialChild(
+                  child: Icon(Icons.color_lens_outlined),
+                  onTap: () async {
+
+                    await showDialog(
+                      context: context,
+                      builder: (context) {
+                        return Dialog(
+                          child: MaterialColorPicker(),
+                        );
+                      }
+                    );
+                  }
+                ),
               ],
             ),
           );

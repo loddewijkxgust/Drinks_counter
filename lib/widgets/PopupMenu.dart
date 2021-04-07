@@ -24,24 +24,24 @@ class PopupMenu extends StatelessWidget {
       itemBuilder: (context) => <PopupMenuEntry>[
         CustomPopupMenuItem(
           icon: Icons.edit,
-          text: Text('Edit name'),
+          text: Text('Edit bar'),
           value: () async {
             await showDialog(
               context: context,
-              builder: (BuildContext context) => AddBarForm(false),
+              builder: (BuildContext context) => AddBarForm(bars: bars, bar: bar, vals: vals, isNew: false),
             );
           },
         ),
+        // CustomPopupMenuItem(
+        //   icon: Icons.delete,
+        //   text: Text('Delete bar'),
+        //   value: () {
+        //     bar.clear();
+        //     bar.save();
+        //   },
+        // ),
         CustomPopupMenuItem(
-          icon: Icons.delete,
-          text: Text('Delete bar'),
-          value: () {
-            bar.clear();
-            bar.save();
-          },
-        ),
-        CustomPopupMenuItem(
-          icon: Icons.clear,
+          icon: Icons.clear_all_sharp,
           text: Text('Reset amount'),
           value: () {
             bar.clearAmount();
@@ -53,13 +53,7 @@ class PopupMenu extends StatelessWidget {
           text: Text('Save'),
           value: () {
             bar.saveToHistory();
-            ScaffoldMessenger.of(context)
-                .showSnackBar(SnackBar(content: Text('Added to history')));
             bar.save();
-            print(bar.history.length);
-            bar.history.forEach((key, value) {
-              print('Key: $key ==> Value: $value');
-            });
           },
         ),
         CustomPopupMenuItem(
@@ -70,7 +64,7 @@ class PopupMenu extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) => HistoryWidget(bar: bar),
-                ),
+              ),
             );
             //Navigator.pushNamed(context, '/history');
           },
