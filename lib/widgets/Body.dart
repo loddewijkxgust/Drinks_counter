@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:drinkscounter/Values.dart';
 import 'package:drinkscounter/models/Bar.dart';
@@ -8,7 +10,6 @@ import 'package:drinkscounter/widgets/AddDrinkForm.dart';
 import 'package:drinkscounter/widgets/QRGenerator.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
 import 'package:reorderables/reorderables.dart';
 
@@ -32,25 +33,19 @@ class Body extends StatelessWidget {
   final Bar bar;
   final Box vals;
 
-/*
-Text(
-bar.menu.fold(0, (num value, Drink drink) => value + drink.amount * drink.price).toStringAsFixed(2),
-style: TextStyle(fontSize: Settings.fontSizeMSmall),
-)
-*/
   @override
   Widget build(BuildContext context) {
     _children = [
-      Container(
-        child: IconButton(
-          icon: Icon(Icons.edit, color: Colors.white, size: Values.fontSizeSmall),
-          onPressed: () async {
-            await showDialog(
-              context: context,
-              builder: (BuildContext context) => AddBarForm(bars: bars, bar: bar, vals: vals, isNew: false),
-            );
-          },
-        ),
+      IconButton(
+        color: Colors.white,
+        iconSize: Values.fontSizeMSmall,
+        icon: Icon(Icons.edit),
+        onPressed: () async {
+          await showDialog(
+            context: context,
+            builder: (BuildContext context) => AddBarForm(bars: bars, bar: bar, vals: vals, isNew: false),
+          );
+        },
       ),
       // Container(
       //   child: IconButton(
@@ -62,15 +57,16 @@ style: TextStyle(fontSize: Settings.fontSizeMSmall),
       //   ),
       // ),
 
-      Container(
-          child: IconButton(
-              icon: Icon(Icons.qr_code_rounded),
-              onPressed: () async {
-                await showDialog(
-                  context: context,
-                  builder: (context) => QRGenerator(),
-                );
-              })),
+      IconButton(
+          color: Colors.white,
+          iconSize: Values.fontSizeMSmall,
+          icon: Icon(Icons.qr_code_rounded),
+          onPressed: () async {
+            await showDialog(
+              context: context,
+              builder: (context) => QRGenerator(),
+            );
+          }),
 
       // Container(
       //   child: IconButton(
@@ -84,14 +80,14 @@ style: TextStyle(fontSize: Settings.fontSizeMSmall),
       //     },
       //   ),
       // ),
-      Container(
-        child: IconButton(
-          icon: Icon(Icons.clear_all_sharp, color: Colors.white, size: Values.fontSizeMSmall),
-          onPressed: () {
-            bar.clearAmount();
-            bar.save();
-          },
-        ),
+      IconButton(
+        color: Colors.white,
+        iconSize: Values.fontSizeMSmall,
+        icon: Icon(Icons.highlight_off_rounded),
+        onPressed: () {
+          bar.clearAmount();
+          bar.save();
+        },
       ),
       //PopupMenu(bars: bars, bar: bar, vals: vals),
     ];
@@ -102,25 +98,34 @@ style: TextStyle(fontSize: Settings.fontSizeMSmall),
           child: CustomScrollView(
             slivers: [
               SliverAppBar(
-                systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: Colors.purple),
-                // title: AutoSizeText('d8 qsmlfjd qsl kfj dqsfmd qsjf ldqs j fmld qj'),
-                centerTitle: true,
-                backgroundColor: Color(bar.color + 20), //Theme.of(context).primaryColorDark,
+                title: AutoSizeText(
+                  bar.name,
+                  maxLines: 2,
+                  
+                  overflow: TextOverflow.ellipsis,
+                ),
+                centerTitle: false,
+                backgroundColor: Color(bar.color),
                 pinned: true,
-                snap: false,
-                actions: _children,
-
                 expandedHeight: 200,
+                actions: _children,
+                
+                
 
                 flexibleSpace: FlexibleSpaceBar(
-                  background: Container(color: Color(bar.color)),
-                  centerTitle: false,
-                  title: SafeArea(
+                  background: InkWell(
+                    onTap: () {},
                     child: Container(
-                      // color: Colors.green,
-                      child: AutoSizeText(bar.name),
+                      padding: EdgeInsets.fromLTRB(8, 0, 8, 16),
+                      alignment: Alignment.bottomRight,
+                      child: Text(
+                        '€${bar.menu.fold(0, (num value, Drink drink) => value + drink.amount * drink.price).toStringAsFixed(2)}',
+                        style: TextStyle(fontSize: Values.fontSize, color: Colors.white),
+                      ),
                     ),
                   ),
+                  centerTitle: false,
+                  title: Text(''),
                   stretchModes: [
                     StretchMode.fadeTitle,
                   ],
@@ -145,15 +150,39 @@ style: TextStyle(fontSize: Settings.fontSizeMSmall),
                                 child: DrinkTile(
                                   drink: curDrink,
                                   key: curDrink.key,
-                                  onPressed: () => bar.save(),
+                                  bar: bar,
                                 ),
                                 direction: DismissDirection.startToEnd,
                                 key: curDrink.key,
-                                onDismissed: (direction) {
-                                  if (index < bar.menu.length) {
-                                    bar.removeDrink(curDrink);
-                                    bar.save();
-                                  }
+                                onDismissed: (direction) async {
+                                  final Drink curDrinkCopy = Drink.copy(bar.menu[index]);
+                                  bar.removeDrink(curDrink);
+                                  bar.save();
+
+                                  await ScaffoldMessenger.of(context)
+                                      .showSnackBar(
+                                        SnackBar(
+                                          behavior: SnackBarBehavior.fixed,
+                                          content: Text('${curDrink.name} removed'),
+                                          action: SnackBarAction(
+                                            label: 'Undo',
+                                            onPressed: () {
+                                              try {
+                                                bar.addDrinkAt((index <= bar.menu.length) ? index : bar.menu.length, curDrinkCopy);
+                                              } catch (e) {
+                                                print('****fout: $e');
+                                              }
+                                              bar.save();
+                                              print('koeroekoeroekoeroekoeroekoeroekoeroe');
+                                            },
+                                          ),
+                                        ),
+                                      )
+                                      .closed
+                                      .then((reason) {
+                                    if (reason != SnackBarClosedReason.action) {
+                                    }
+                                  });
                                 },
                               );
                             }),
@@ -162,6 +191,7 @@ style: TextStyle(fontSize: Settings.fontSizeMSmall),
                             bar.swap(oldIndex, newIndex);
                             bar.save();
                           },
+                          
                         )
                       : SliverToBoxAdapter(
                           child: ListTile(
@@ -169,9 +199,7 @@ style: TextStyle(fontSize: Settings.fontSizeMSmall),
                               child: TextButton(
                                 child: Text(
                                   '+ Add drink',
-                                  style: TextStyle(
-                                    fontSize: Values.fontSize,
-                                  ),
+                                  style: Theme.of(context).textTheme.bodyText1,
                                 ),
                                 onPressed: () async {
                                   await showDialog(
@@ -186,13 +214,7 @@ style: TextStyle(fontSize: Settings.fontSizeMSmall),
                   : SliverToBoxAdapter(
                       child: Center(
                         child: TextButton(
-                          child: Text(
-                            '+ Add bar',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: Values.fontSize,
-                            ),
-                          ),
+                          child: Text('+ Add bar', style: Theme.of(context).textTheme.bodyText1),
                           onPressed: () async {
                             await showDialog(context: context, builder: (BuildContext context) => AddBarForm(bars: bars, bar: bar, vals: vals, isNew: true));
                           },
@@ -204,3 +226,45 @@ style: TextStyle(fontSize: Settings.fontSizeMSmall),
         ));
   }
 }
+/*
+Container(
+                    color: Color(bar.color),
+                    child: SafeArea(
+                      child: Container(
+                        // color: Colors.blueGrey,
+                        height: double.infinity,
+                        padding: EdgeInsets.only(right: 8),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          // mainAxisSize: MainAxisSize.max,
+                          // mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Expanded(
+                              flex: 4,
+                              child: Container(
+                                // alignment: Alignment.bottomLeft,
+                                color: Colors.yellow,
+                                child: AutoSizeText(
+                                  bar.name,
+                                  softWrap: true,
+                                  wrapWords: false,
+                                  style: TextStyle(backgroundColor: Colors.orange),
+                                ),
+                              ),
+                            ),
+                            ..._children.map((element) {
+                              return Expanded(
+                                child: Container(
+                                  padding: EdgeInsets.only(bottom: 0),
+                                  child: element,
+                                  // alignment: Alignment.centerRight,
+                                  color: Colors.green,
+                                  margin: EdgeInsets.all(1),
+                                ),
+                              );
+                            }),
+                          ],
+                        ),
+                      ),
+                    ),
+                  )*/

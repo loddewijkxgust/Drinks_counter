@@ -20,18 +20,16 @@ class Drink extends HiveObject {
     this.amount = 0,
     required this.key
   });
+
+  factory Drink.copy(Drink _drink) => Drink(name: _drink.name, price: _drink.price, amount: _drink.amount, key: _drink.key);
   
   int plus() {
-    if (this.amount < 1000) {
-      this.amount++;
-    }
+    if (this.amount < 999) this.amount++;
     return this.amount;
   }
 
   int min() {
-    if (this.amount > 0) {
-      this.amount--;
-    }
+    if (this.amount > 0) this.amount--;
     return this.amount;
   }
 }

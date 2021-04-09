@@ -1,4 +1,5 @@
 import 'package:drinkscounter/widgets/AddBarForm.dart';
+import 'package:drinkscounter/widgets/SettingsWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:hive/hive.dart';
@@ -25,16 +26,30 @@ class BarDrawer extends StatelessWidget {
     bar = bars.get(vals.get('last')) ?? bar;
     
     return Drawer(
-  
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           DrawerHeader(
-            child: Text('Bars', style: TextStyle(fontSize: Values.fontSize)),
+            padding: EdgeInsets.only(right: 0, left: 8, top: 8),
+            child: Container(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Text('Drink counter', style: TextStyle(fontSize: Values.fontSize)),
+                  Align(
+                    alignment: Alignment.topCenter,
+                    child: IconButton(
+                      icon: Icon(Icons.settings), 
+                      onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsWidget())),
+                    ),
+                  ),
+                ],
+              ),
+            ),
             decoration: BoxDecoration(
-              color: Color(bar.color),//Theme.of(context).primaryColor,
-              
+              color: Color(bar.color),
             ),
           ),
           Expanded(
@@ -90,8 +105,9 @@ class BarDrawer extends StatelessWidget {
                     leading: CircleAvatar(
                       backgroundColor: Color(curBar.color),
                       maxRadius: 15,
-                      ),
-                    tileColor: (curBar != bar) ? Colors.white : Colors.black12,
+                    ),
+                    //tileColor: (curBar != bar) ? Colors.white : Colors.black12,
+                    tileColor: (curBar == bar) ? Theme.of(context).backgroundColor : Theme.of(context).scaffoldBackgroundColor,
                     title: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Align(
@@ -101,14 +117,16 @@ class BarDrawer extends StatelessWidget {
                           softWrap: false,
                           style: TextStyle(
                             fontSize: Values.fontSizeMSmall,
-                            color: Colors.black)),
+                            //color: Colors.black,
+                          ),
+                        ),
                       ),
                     ),
                     onTap: () {
                         print('Switching...');
                         print(bars.getAt(index)?.key);
                         vals.put('last', bars.getAt(index)?.key ?? bar.key);
-                        //Navigator.pop(context);
+                        Navigator.pop(context);
                     },
                   ),
                 );

@@ -67,14 +67,13 @@ class AddDrinkForm extends StatelessWidget {
                 onPressed: () {
                   if (_formKey.currentState?.validate() ?? false) {
                     _formKey.currentState!.save();
-                    
-                    bar.addDrink(new Drink(name: this.name, price: this.price, key: UniqueKey()));
+                    if (this.name == '****') {
+                      bar.addAllDrinks(Bar.impuls().menu);
+                    } else {
+                      bar.addDrink(new Drink(name: this.name, price: this.price, key: UniqueKey()));
+                    }
                     bar.save();
-//                    CustomNotification(notification: Notifications.update)..dispatch(context);
                     
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('${this.name}  ::  ${this.price}'))
-                    );
                     Navigator.pop(context);
                   }
                 },

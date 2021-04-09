@@ -89,7 +89,8 @@ class AddBarForm extends StatelessWidget {
                     
                     if (this.isNew) {
                       switch (this.name.toLowerCase()) {
-                        case '**boot':
+                        case '**impuls':
+                        case '****':
                           bar = Bar.impuls();
                           break;
                         case '**sport':

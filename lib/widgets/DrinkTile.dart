@@ -1,4 +1,5 @@
 import 'package:drinkscounter/Values.dart';
+import 'package:drinkscounter/models/Bar.dart';
 import 'package:drinkscounter/models/Drink.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -6,12 +7,14 @@ import 'package:flutter/material.dart';
 class DrinkTile extends StatefulWidget {
   final Drink drink;
   final Key key;
-  final Function onPressed;
+  // final Function onPressed;
+  final Bar bar;
 
   DrinkTile({
     required this.drink,
     required this.key,
-    required this.onPressed,
+    // required this.onPressed,
+    required this.bar
   });
 
   @override
@@ -57,10 +60,11 @@ class _DrinkTileState extends State<DrinkTile> {
                       child: Icon(Icons.remove),
                       onPressed: () {
                         widget.drink.min();
-                        widget.onPressed();
+                        // widget.onPressed();
+                        widget.bar.save();
                       },
                       style: TextButton.styleFrom(
-                        //backgroundColor: Colors.tealAccent,
+                        // backgroundColor: Colors.tealAccent,
                         padding: EdgeInsets.all(0),
                       )
                     ),
@@ -68,7 +72,8 @@ class _DrinkTileState extends State<DrinkTile> {
                   
                   Expanded(
                     child: Container(
-                      //color: Colors.teal,
+                      alignment: Alignment.center,
+                      // color: Colors.teal,
                       padding: EdgeInsets.symmetric(horizontal: 0),
                       child: Text(
                         widget.drink.amount.toString(),
@@ -81,7 +86,8 @@ class _DrinkTileState extends State<DrinkTile> {
                       child: Icon(Icons.add),
                       onPressed: () {
                         widget.drink.plus();
-                        widget.onPressed();
+                        // widget.onPressed();
+                        widget.bar.save();
                       },
                       style: TextButton.styleFrom(
                         //backgroundColor: Colors.tealAccent,

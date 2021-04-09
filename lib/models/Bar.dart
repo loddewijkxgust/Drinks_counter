@@ -46,6 +46,7 @@ class Bar extends HiveObject {
   factory Bar.empty() => Bar(name: '', color: 0xFF009688);
   factory Bar.firstBar() => Bar(name: 'My first bar', color: 0xFF48d4ff);
   factory Bar.fromHistory(List<Drink> _menu, String _name) => Bar(menu: _menu, name: _name);
+  factory Bar.copy(Bar _bar) => Bar(menu: _bar.menu, name: _bar.name, color: _bar.color); 
 
   String toString({encoded = false}) {
     String str = this.menu.fold('{"name":"${this.name}","color":"${this.color}","menu":[', (String str, Drink drink) => str + '["${drink.name}",${drink.price}],').replaceAll(RegExp(r'.$'), "") + ']}';
@@ -62,6 +63,13 @@ class Bar extends HiveObject {
     _temp.add(_drink);
     this.menu = _temp;
     return this.menu;
+  }
+
+  void addDrinkAt(int _index, Drink _drink) {
+    List<Drink> _temp = List.empty(growable: true);
+    _temp.addAll(this.menu);
+    _temp.insert(_index, _drink);
+    this.menu = _temp;
   }
 
   List<Drink> addAllDrinks(List<Drink> _menu) {
@@ -81,7 +89,8 @@ class Bar extends HiveObject {
   void swap(int oldIndex, int newIndex) {
     List<Drink> _temp = List.from(this.menu, growable: true);
     final Drink d = _temp.removeAt(oldIndex);
-    _temp.insert(oldIndex < newIndex ? newIndex - 1 : newIndex, d);
+    //_temp.insert(oldIndex < newIndex ? newIndex - 1 : newIndex, d);
+    _temp.insert(newIndex, d);
     this.menu = _temp;
   }
 
